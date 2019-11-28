@@ -1,0 +1,22 @@
+﻿<Page x:Class="ProjetB2CSharpPlage.Vue.AfficherUtilisateurs"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjetB2CSharpPlage.Vue"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AfficherUtilisateurs">
+
+    <Grid>
+        <DataGrid Name="listeUtilisateurs" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="171,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUtilisateurs_SelectionChanged" Width="445">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="id" Binding="{Binding idUtilisateurProperty, Mode=OneWay}" />
+                <DataGridTextColumn Header="nom" Binding="{Binding nomUtilisateurProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="prenom" Binding="{Binding prenomUtilisateurProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="isAdmin" Binding="{Binding roleUtilisateurProperty, Mode=OneWay}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="supprimerButton" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick" BorderThickness="2,2,2,2" Margin="297,318,316,56"/>
+    </Grid>
+</Page>

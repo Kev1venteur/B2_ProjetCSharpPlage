@@ -6,15 +6,4 @@
         xmlns:local="clr-namespace:ProjetB2CSharpPlage"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <DataGrid Name="listeUtilisateurs" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="171,0,0,178" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUtilisateurs_SelectionChanged" Width="445">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="id" Binding="{Binding idUtilisateurProperty, Mode=OneWay}" />
-                <DataGridTextColumn Header="nom" Binding="{Binding nomUtilisateurProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="prenom" Binding="{Binding prenomUtilisateurProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="isAdmin" Binding="{Binding roleUtilisateurProperty, Mode=OneWay}" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button x:Name="supprimerButton" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick" BorderBrush="#FF545454" BorderThickness="5,5,5,1" Height="35" Width="200" Margin="293,302,299,82"></Button>
-    </Grid>
 </Window>

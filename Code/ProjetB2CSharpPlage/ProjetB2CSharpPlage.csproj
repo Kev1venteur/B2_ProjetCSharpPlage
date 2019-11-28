@@ -60,6 +60,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Vue\AfficherUtilisateurs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vue\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,6 +79,9 @@
     <Compile Include="DAL\ConnexionBaseDAL.cs" />
     <Compile Include="DAO\ConnexionUtilisateurDAO.cs" />
     <Compile Include="DAO\UtilisateurDAO.cs" />
+    <Compile Include="Vue\AfficherUtilisateurs.xaml.cs">
+      <DependentUpon>AfficherUtilisateurs.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vue\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
