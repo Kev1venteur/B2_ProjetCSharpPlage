@@ -1,9 +1,9 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
 
-namespace ProjetB2CSharpPlage.ORM
+namespace ProjetB2CSharpPlage.DAL
 {
-    class DALConnection
+    class ConnexionBaseDAL
     {
         private static string server;
         private static string database;

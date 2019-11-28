@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ProjetB2CSharpPlage.Ctrl
 {
-    class ConnexionBaseModele
+    class ConnexionUtilisateurModele
     {
         private string username;
         private string password;
 
-        public ConnexionBaseModele() { }
+        public ConnexionUtilisateurModele() { }
 
-        public ConnexionBaseModele(string nomUtilisateur, string motDePasse)
+        public ConnexionUtilisateurModele(string nomUtilisateur, string motDePasse)
         {
             this.username = nomUtilisateur;
             this.password = motDePasse;

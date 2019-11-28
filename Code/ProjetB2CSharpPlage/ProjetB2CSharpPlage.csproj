@@ -40,6 +40,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,7 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Vue\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -66,13 +68,20 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DAL\DALConnection.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Ctrl\UtilisateurViewModel.cs" />
+    <Compile Include="Ctrl\ConnexionUtilisateurModele.cs" />
+    <Compile Include="DAL\UtilisateurDAL.cs" />
+    <Compile Include="DAL\ConnexionUtilisateurDAL.cs" />
+    <Compile Include="DAL\ConnexionBaseDAL.cs" />
+    <Compile Include="DAO\ConnexionUtilisateurDAO.cs" />
+    <Compile Include="DAO\UtilisateurDAO.cs" />
+    <Compile Include="Vue\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ORM\UtilisateurORM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -98,11 +107,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ctrl\" />
-    <Folder Include="DAO\" />
-    <Folder Include="ORM\" />
-    <Folder Include="Vue\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
