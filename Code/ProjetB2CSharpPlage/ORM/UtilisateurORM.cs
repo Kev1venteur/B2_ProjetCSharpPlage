@@ -14,7 +14,7 @@ namespace ProjetB2CSharpPlage.ORM
         public static UtilisateurViewModel getUtilisateur(int idUtilisateur)
         {
             UtilisateurDAO pDAO = UtilisateurDAO.getUtilisateurs(idUtilisateur);
-            UtilisateurViewModel p = new UtilisateurViewModel(pDAO.idUtilisateurDAO, pDAO.nomUtilisateurDAO, pDAO.prenomUtilisateurDAO, pDAO.roleUtilisateurDAO);
+            UtilisateurViewModel p = new UtilisateurViewModel(pDAO.idUtilisateurDAO, pDAO.nomUtilisateurDAO, pDAO.prenomUtilisateurDAO, pDAO.roleUtilisateurDAO, pDAO.passwordUtilisateurDAO, pDAO.loginUtilisateurDAO);
             return p;
         }
 
@@ -24,7 +24,7 @@ namespace ProjetB2CSharpPlage.ORM
             ObservableCollection<UtilisateurViewModel> l = new ObservableCollection<UtilisateurViewModel>();
             foreach (UtilisateurDAO element in lDAO)
             {
-                UtilisateurViewModel p = new UtilisateurViewModel(element.idUtilisateurDAO, element.nomUtilisateurDAO, element.prenomUtilisateurDAO, element.roleUtilisateurDAO);
+                UtilisateurViewModel p = new UtilisateurViewModel(element.idUtilisateurDAO, element.nomUtilisateurDAO, element.prenomUtilisateurDAO, element.roleUtilisateurDAO, element.passwordUtilisateurDAO, element.loginUtilisateurDAO);
                 l.Add(p);
             }
             return l;

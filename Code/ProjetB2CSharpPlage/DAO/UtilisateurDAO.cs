@@ -16,12 +16,16 @@ namespace ProjetB2CSharpPlage.DAO
         public string nomUtilisateurDAO;
         public string prenomUtilisateurDAO;
         public bool roleUtilisateurDAO;
-        public UtilisateurDAO(int idUtilisateurDAO, string nomUtilisateurDAO, string prenomUtilisateurDAO, bool roleUtilisateurDAO)
+        public string passwordUtilisateurDAO;
+        public string loginUtilisateurDAO;
+        public UtilisateurDAO(int idUtilisateurDAO, string nomUtilisateurDAO, string prenomUtilisateurDAO, bool roleUtilisateurDAO, string passwordUtilisateurDAO, string loginUtilisateurDAO)
         {
             this.idUtilisateurDAO = idUtilisateurDAO;
             this.nomUtilisateurDAO = nomUtilisateurDAO;
             this.prenomUtilisateurDAO = prenomUtilisateurDAO;
             this.roleUtilisateurDAO = roleUtilisateurDAO;
+            this.passwordUtilisateurDAO = passwordUtilisateurDAO;
+            this.loginUtilisateurDAO = loginUtilisateurDAO;
         }
         public static ObservableCollection<UtilisateurDAO> listeUtilisateurs()
         {
@@ -37,7 +41,7 @@ namespace ProjetB2CSharpPlage.DAO
 
         public static void updateUtilisateur(UtilisateurViewModel u)
         {
-            UtilisateurDAL.updateUtilisateur(new UtilisateurDAO(u.idUtilisateurProperty, u.nomUtilisateurProperty, u.prenomUtilisateurProperty, u.roleUtilisateurProperty));
+            UtilisateurDAL.updateUtilisateur(new UtilisateurDAO(u.idUtilisateurProperty, u.nomUtilisateurProperty, u.prenomUtilisateurProperty, u.roleUtilisateurProperty, u.passwordUtilisateurProperty, u.loginUtilisateurProperty));
         }
 
         public static void supprimerUtilisateur(int id)
@@ -47,7 +51,7 @@ namespace ProjetB2CSharpPlage.DAO
 
         public static void insertUtilisateur(UtilisateurViewModel u)
         {
-            UtilisateurDAL.insertUtilisateur(new UtilisateurDAO(u.idUtilisateurProperty, u.nomUtilisateurProperty, u.prenomUtilisateurProperty, u.roleUtilisateurProperty));
+            UtilisateurDAL.insertUtilisateur(new UtilisateurDAO(u.idUtilisateurProperty, u.nomUtilisateurProperty, u.prenomUtilisateurProperty, u.roleUtilisateurProperty, u.passwordUtilisateurProperty, u.loginUtilisateurProperty));
         }
     }
 }

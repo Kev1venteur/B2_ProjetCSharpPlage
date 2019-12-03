@@ -9,12 +9,14 @@
       Title="AfficherUtilisateurs">
 
     <Grid>
-        <DataGrid Name="listeUtilisateurs" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="171,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUtilisateurs_SelectionChanged" Width="445">
+        <DataGrid Name="listeUtilisateurs" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUtilisateurs_SelectionChanged" Width="633">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="id" Binding="{Binding idUtilisateurProperty, Mode=OneWay}" />
                 <DataGridTextColumn Header="nom" Binding="{Binding nomUtilisateurProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="prenom" Binding="{Binding prenomUtilisateurProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="isAdmin" Binding="{Binding roleUtilisateurProperty, Mode=OneWay}" />
+                <DataGridTextColumn Header="isAdmin" Binding="{Binding roleUtilisateurProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="password" Binding="{Binding passwordUtilisateurProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="login" Binding="{Binding loginUtilisateurProperty, Mode=TwoWay}" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="supprimerButton" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick" BorderThickness="2,2,2,2" Margin="297,318,316,56"/>
