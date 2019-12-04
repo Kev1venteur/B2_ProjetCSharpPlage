@@ -36,8 +36,18 @@ namespace ProjetB2CSharpPlage.Vue
             lp = ZonePrelevementORM.listeZonePrelevements();
             listeZonePrelevements.ItemsSource = lp;
         }
-        private void nomPrenomButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ajouterZone_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            myDataObject = new ZonePrelevementViewModel();
+            myDataObject.nomZonePrelevementProperty = Nom.Text;
+            myDataObject.lat1Property = Convert.ToDecimal(Lat1.Text);
+            myDataObject.lat2Property = Convert.ToDecimal(Lat2.Text);
+            myDataObject.lat3Property = Convert.ToDecimal(Lat3.Text);
+            myDataObject.lat4Property = Convert.ToDecimal(Lat4.Text);
+            myDataObject.long1Property = Convert.ToDecimal(Long1.Text);
+            myDataObject.long2Property = Convert.ToDecimal(Long2.Text);
+            myDataObject.long3Property = Convert.ToDecimal(Long3.Text);
+            myDataObject.long4Property = Convert.ToDecimal(Long4.Text);
             ZonePrelevementViewModel nouveau = new ZonePrelevementViewModel(ZonePrelevementDAL.getMaxIdZonePrelevement() + 1, myDataObject.nomZonePrelevementProperty, myDataObject.lat1Property, myDataObject.lat2Property, myDataObject.lat3Property, myDataObject.lat4Property, myDataObject.long1Property, myDataObject.long2Property, myDataObject.long3Property, myDataObject.long4Property);
             lp.Add(nouveau);
             ZonePrelevementDAO.insertZonePrelevement(nouveau);

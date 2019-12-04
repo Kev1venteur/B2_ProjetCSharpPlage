@@ -36,8 +36,10 @@ namespace ProjetB2CSharpPlage.Vue
             lu = UtilisateurORM.listeUtilisateurs();
             listeUtilisateurs.ItemsSource = lu;
         }
-        private void nomPrenomButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ajouterUser_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            myDataObject = new UtilisateurViewModel();
+            //myDataObject.nomUtilisateurProperty = nom.Text;
             UtilisateurViewModel nouveau = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, myDataObject.nomUtilisateurProperty, myDataObject.prenomUtilisateurProperty, myDataObject.roleUtilisateurProperty, myDataObject.passwordUtilisateurProperty, myDataObject.loginUtilisateurProperty);
             lu.Add(nouveau);
             UtilisateurDAO.insertUtilisateur(nouveau);
