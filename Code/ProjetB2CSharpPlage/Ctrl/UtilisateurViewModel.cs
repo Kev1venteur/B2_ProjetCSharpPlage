@@ -8,18 +8,18 @@ using ProjetB2CSharpPlage.DAO;
 
 namespace ProjetB2CSharpPlage.Ctrl
 {
-    public class UtilisateurViewModel
+    public class UtilisateurViewModel : INotifyPropertyChanged
     {
         private int idUtilisateur;
         private string nomUtilisateur;
         private string prenomUtilisateur;
         private string passwordUtilisateur;
         private string loginUtilisateur;
-        private bool roleUtilisateur;
+        private Byte roleUtilisateur;
 
         public UtilisateurViewModel() { }
 
-        public UtilisateurViewModel(int id, string nom, string prenom, bool role, string password, string login)
+        public UtilisateurViewModel(int id, string nom, string prenom, Byte role, string password, string login)
         {
             this.idUtilisateur = id;
             this.nomUtilisateur = nom;
@@ -38,8 +38,7 @@ namespace ProjetB2CSharpPlage.Ctrl
             get { return nomUtilisateur; }
             set
             {
-                nomUtilisateur = value.ToUpper();
-                this.concatProperty = this.nomUtilisateur + " " + value;
+                this.nomUtilisateur = value.ToUpper();
                 OnPropertyChanged("nomUtilisateurProperty");
             }
         }
@@ -49,7 +48,6 @@ namespace ProjetB2CSharpPlage.Ctrl
             set
             {
                 this.prenomUtilisateur = value;
-                this.concatProperty = this.prenomUtilisateur + " " + value;
                 OnPropertyChanged("prenomUtilisateurProperty");
             }
         }
@@ -59,7 +57,6 @@ namespace ProjetB2CSharpPlage.Ctrl
             set
             {
                 this.passwordUtilisateur = value;
-                this.concatProperty = this.passwordUtilisateur + " " + value;
                 OnPropertyChanged("passwordUtilisateurProperty");
             }
         }
@@ -69,17 +66,15 @@ namespace ProjetB2CSharpPlage.Ctrl
             set
             {
                 this.loginUtilisateur = value;
-                this.concatProperty = this.loginUtilisateur + " " + value;
                 OnPropertyChanged("loginUtilisateurProperty");
             }
         }
-        public bool roleUtilisateurProperty
+        public Byte roleUtilisateurProperty
         {
             get { return roleUtilisateur; }
             set
             {
                 this.roleUtilisateur = value;
-                this.concatProperty = this.roleUtilisateur + " " + value;
                 OnPropertyChanged("roleUtilisateurProperty");
             }
         }
@@ -91,14 +86,6 @@ namespace ProjetB2CSharpPlage.Ctrl
             {
                 handler(this, new PropertyChangedEventArgs(info));
                 UtilisateurDAO.updateUtilisateur(this);
-            }
-        }
-        public String concatProperty
-        {
-            get { return ""; }
-            set
-            {
-                //     this.concat = "Ajouter " + value;
             }
         }
     }

@@ -26,7 +26,8 @@ namespace ProjetB2CSharpPlage
         {
             InitializeComponent();
             Page AfficherUtilisateurs = new AfficherUtilisateurs();
-            this.Content = AfficherUtilisateurs;
+            Page AfficherZonePrelevements = new AfficherZonePrelevements();
+            this.Content = AfficherZonePrelevements;
         }
     }
 }

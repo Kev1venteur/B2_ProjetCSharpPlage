@@ -28,35 +28,35 @@ namespace ProjetB2CSharpPlage.Vue
         int selectedUtilisateurId;
         UtilisateurViewModel myDataObject;
         UtilisateurDAL c = new UtilisateurDAL();
-        ObservableCollection<UtilisateurViewModel> lp;
+        ObservableCollection<UtilisateurViewModel> lu;
         int compteur = 0;
         public AfficherUtilisateurs()
         {
             InitializeComponent();
-            lp = UtilisateurORM.listeUtilisateurs();
-            listeUtilisateurs.ItemsSource = lp;
+            lu = UtilisateurORM.listeUtilisateurs();
+            listeUtilisateurs.ItemsSource = lu;
         }
         private void nomPrenomButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             UtilisateurViewModel nouveau = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, myDataObject.nomUtilisateurProperty, myDataObject.prenomUtilisateurProperty, myDataObject.roleUtilisateurProperty, myDataObject.passwordUtilisateurProperty, myDataObject.loginUtilisateurProperty);
-            lp.Add(nouveau);
+            lu.Add(nouveau);
             UtilisateurDAO.insertUtilisateur(nouveau);
             listeUtilisateurs.Items.Refresh();
-            compteur = lp.Count();
+            compteur = lu.Count();
             myDataObject = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, "", "", myDataObject.roleUtilisateurProperty, "", "");
         }
         private void supprimerButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             UtilisateurViewModel toRemove = (UtilisateurViewModel)listeUtilisateurs.SelectedItem;
-            lp.Remove(toRemove);
+            lu.Remove(toRemove);
             listeUtilisateurs.Items.Refresh();
             UtilisateurDAO.supprimerUtilisateur(selectedUtilisateurId);
         }
         private void listeUtilisateurs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((listeUtilisateurs.SelectedIndex < lp.Count) && (listeUtilisateurs.SelectedIndex >= 0))
+            if ((listeUtilisateurs.SelectedIndex < lu.Count) && (listeUtilisateurs.SelectedIndex >= 0))
             {
-                selectedUtilisateurId = (lp.ElementAt<UtilisateurViewModel>(listeUtilisateurs.SelectedIndex)).idUtilisateurProperty;
+                selectedUtilisateurId = (lu.ElementAt<UtilisateurViewModel>(listeUtilisateurs.SelectedIndex)).idUtilisateurProperty;
             }
         }
     }

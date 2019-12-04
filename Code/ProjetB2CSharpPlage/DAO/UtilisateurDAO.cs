@@ -15,10 +15,10 @@ namespace ProjetB2CSharpPlage.DAO
         public int idUtilisateurDAO;
         public string nomUtilisateurDAO;
         public string prenomUtilisateurDAO;
-        public bool roleUtilisateurDAO;
+        public Byte roleUtilisateurDAO;
         public string passwordUtilisateurDAO;
         public string loginUtilisateurDAO;
-        public UtilisateurDAO(int idUtilisateurDAO, string nomUtilisateurDAO, string prenomUtilisateurDAO, bool roleUtilisateurDAO, string passwordUtilisateurDAO, string loginUtilisateurDAO)
+        public UtilisateurDAO(int idUtilisateurDAO, string nomUtilisateurDAO, string prenomUtilisateurDAO, Byte roleUtilisateurDAO, string passwordUtilisateurDAO, string loginUtilisateurDAO)
         {
             this.idUtilisateurDAO = idUtilisateurDAO;
             this.nomUtilisateurDAO = nomUtilisateurDAO;

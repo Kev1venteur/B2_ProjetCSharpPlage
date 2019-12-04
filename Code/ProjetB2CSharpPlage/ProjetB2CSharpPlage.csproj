@@ -64,6 +64,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vue\AfficherZonePrelevements.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vue\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -74,13 +78,20 @@
     </Compile>
     <Compile Include="Ctrl\UtilisateurViewModel.cs" />
     <Compile Include="Ctrl\ConnexionUtilisateurModele.cs" />
+    <Compile Include="Ctrl\ZonePrelevementViewModel.cs" />
     <Compile Include="DAL\UtilisateurDAL.cs" />
     <Compile Include="DAL\ConnexionUtilisateurDAL.cs" />
     <Compile Include="DAL\ConnexionBaseDAL.cs" />
+    <Compile Include="DAL\ZonePrelevementDAL.cs" />
     <Compile Include="DAO\ConnexionUtilisateurDAO.cs" />
     <Compile Include="DAO\UtilisateurDAO.cs" />
+    <Compile Include="DAO\ZonePrelevementDAO.cs" />
+    <Compile Include="ORM\ZonePrelevement.cs" />
     <Compile Include="Vue\AfficherUtilisateurs.xaml.cs">
       <DependentUpon>AfficherUtilisateurs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\AfficherZonePrelevements.xaml.cs">
+      <DependentUpon>AfficherZonePrelevements.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vue\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
