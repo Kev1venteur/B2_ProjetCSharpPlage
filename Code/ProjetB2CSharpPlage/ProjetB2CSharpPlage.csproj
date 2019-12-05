@@ -60,6 +60,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Vue\AfficherEquipes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\AfficherInterfaceSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vue\AfficherUtilisateurs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -76,17 +84,26 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Ctrl\EquipeViewModel.cs" />
     <Compile Include="Ctrl\UtilisateurViewModel.cs" />
-    <Compile Include="Ctrl\ConnexionUtilisateurModele.cs" />
     <Compile Include="Ctrl\ZonePrelevementViewModel.cs" />
+    <Compile Include="DAL\EquipeDAL.cs" />
     <Compile Include="DAL\UtilisateurDAL.cs" />
     <Compile Include="DAL\ConnexionUtilisateurDAL.cs" />
     <Compile Include="DAL\ConnexionBaseDAL.cs" />
     <Compile Include="DAL\ZonePrelevementDAL.cs" />
     <Compile Include="DAO\ConnexionUtilisateurDAO.cs" />
+    <Compile Include="DAO\EquipeDAO.cs" />
     <Compile Include="DAO\UtilisateurDAO.cs" />
     <Compile Include="DAO\ZonePrelevementDAO.cs" />
+    <Compile Include="ORM\EquipeORM.cs" />
     <Compile Include="ORM\ZonePrelevement.cs" />
+    <Compile Include="Vue\AfficherEquipes.xaml.cs">
+      <DependentUpon>AfficherEquipes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\AfficherInterfaceSelection.xaml.cs">
+      <DependentUpon>AfficherInterfaceSelection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vue\AfficherUtilisateurs.xaml.cs">
       <DependentUpon>AfficherUtilisateurs.xaml</DependentUpon>
     </Compile>

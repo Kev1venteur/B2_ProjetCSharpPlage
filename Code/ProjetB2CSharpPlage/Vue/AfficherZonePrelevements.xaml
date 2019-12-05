@@ -11,19 +11,19 @@
     <Grid>
         <DataGrid Name="listeZonePrelevements" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="0,10,0,87" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeZonePrelevements_SelectionChanged" Width="700">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="id" Binding="{Binding idZonePrelevementProperty, Mode=OneWay}" />
-                <DataGridTextColumn Header="nom" Binding="{Binding nomZonePrelevementProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="lat1" Binding="{Binding lat1Property, Mode=TwoWay}" />
-                <DataGridTextColumn Header="lat2" Binding="{Binding lat2Property, Mode=TwoWay}" />
-                <DataGridTextColumn Header="lat3" Binding="{Binding lat3Property, Mode=TwoWay}" />
-                <DataGridTextColumn Header="lat4" Binding="{Binding lat4Property, Mode=TwoWay}" />
-                <DataGridTextColumn Header="long1" Binding="{Binding long1Property, Mode=TwoWay}" />
-                <DataGridTextColumn Header="long2" Binding="{Binding long2Property, Mode=TwoWay}" />
-                <DataGridTextColumn Header="long3" Binding="{Binding long3Property, Mode=TwoWay}" />
-                <DataGridTextColumn Header="long4" Binding="{Binding long4Property, Mode=TwoWay}" />
+                <DataGridTextColumn Header="ID" Binding="{Binding idZonePrelevementProperty, Mode=OneWay}" />
+                <DataGridTextColumn Header="Nom" Binding="{Binding nomZonePrelevementProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Lat1" Binding="{Binding lat1Property, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Lat2" Binding="{Binding lat2Property, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Lat3" Binding="{Binding lat3Property, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Lat4" Binding="{Binding lat4Property, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Long1" Binding="{Binding long1Property, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Long2" Binding="{Binding long2Property, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Long3" Binding="{Binding long3Property, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Long4" Binding="{Binding long4Property, Mode=TwoWay}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="supprimerButton" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick" BorderThickness="2,2,2,2" Margin="700,10,0,87"/>
+        <Button x:Name="supprimerButton" Content="Supprimer" Click="supprimerButton_Click" BorderThickness="2,2,2,2" Margin="700,156,0,87"/>
         <TextBox HorizontalAlignment="Left" Height="33" Margin="40,375,0,0" TextWrapping="Wrap" Text="Nom" Name="Nom" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.356,0.536"/>
         <TextBox HorizontalAlignment="Left" Height="33" Margin="119,375,0,0" TextWrapping="Wrap" Text="Lat1" Name="Lat1" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.356,0.536"/>
         <TextBox HorizontalAlignment="Left" Height="33" Margin="187,375,0,0" TextWrapping="Wrap" Text="Lat2" Name="Lat2" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.356,0.536"/>
@@ -33,8 +33,9 @@
         <TextBox HorizontalAlignment="Left" Height="33" Margin="459,375,0,0" TextWrapping="Wrap" Text="Long2" Name="Long2" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.356,0.536"/>
         <TextBox HorizontalAlignment="Left" Height="33" Margin="527,375,0,0" TextWrapping="Wrap" Text="Long3" Name="Long3" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.356,0.536"/>
         <TextBox HorizontalAlignment="Left" Height="33" Margin="595,375,0,0" TextWrapping="Wrap" Text="Long4" Name="Long4" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.356,0.536"/>
-        <Button HorizontalAlignment="Left" Margin="663,375,0,0" VerticalAlignment="Top" Width="92" Height="33" MouseDoubleClick="ajouterZone_MouseDoubleClick">
+        <Button HorizontalAlignment="Left" Margin="663,375,0,0" VerticalAlignment="Top" Width="92" Height="33" Click="ajouterZone_Click">
             <Label Content="Ajouter" Height="36"/>
         </Button>
+        <Button x:Name="supprimerButton_Copy" Content="Accueil" Click="redirectButton_Accueil" BorderThickness="2,2,2,2" Margin="700,10,0,294"/>
     </Grid>
 </Page>

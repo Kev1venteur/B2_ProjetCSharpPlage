@@ -25,9 +25,7 @@ namespace ProjetB2CSharpPlage
         public MainWindow()
         {
             InitializeComponent();
-            Page AfficherUtilisateurs = new AfficherUtilisateurs();
-            Page AfficherZonePrelevements = new AfficherZonePrelevements();
-            this.Content = AfficherZonePrelevements;
+            this.Content = new AfficherInterfaceSelection();
         }
     }
 }

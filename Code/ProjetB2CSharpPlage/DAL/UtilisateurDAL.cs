@@ -66,7 +66,7 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static int getMaxIdUtilisateur()
         {
-            string query = "SELECT MAX(idUtilisateur) FROM utilisateur;";
+            string query = "SELECT IFNULL(MAX(idUtilisateur),0) FROM utilisateur;";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
 

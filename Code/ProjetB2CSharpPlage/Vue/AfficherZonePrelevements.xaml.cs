@@ -29,14 +29,13 @@ namespace ProjetB2CSharpPlage.Vue
         ZonePrelevementViewModel myDataObject;
         ZonePrelevementDAL c = new ZonePrelevementDAL();
         ObservableCollection<ZonePrelevementViewModel> lp;
-        int compteur = 0;
         public AfficherZonePrelevements()
         {
             InitializeComponent();
             lp = ZonePrelevementORM.listeZonePrelevements();
             listeZonePrelevements.ItemsSource = lp;
         }
-        private void ajouterZone_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ajouterZone_Click(object sender, EventArgs e)
         {
             myDataObject = new ZonePrelevementViewModel();
             myDataObject.nomZonePrelevementProperty = Nom.Text;
@@ -51,23 +50,26 @@ namespace ProjetB2CSharpPlage.Vue
             ZonePrelevementViewModel nouveau = new ZonePrelevementViewModel(ZonePrelevementDAL.getMaxIdZonePrelevement() + 1, myDataObject.nomZonePrelevementProperty, myDataObject.lat1Property, myDataObject.lat2Property, myDataObject.lat3Property, myDataObject.lat4Property, myDataObject.long1Property, myDataObject.long2Property, myDataObject.long3Property, myDataObject.long4Property);
             lp.Add(nouveau);
             ZonePrelevementDAO.insertZonePrelevement(nouveau);
-            listeZonePrelevements.Items.Refresh();
-            compteur = lp.Count();
-            myDataObject = new ZonePrelevementViewModel(ZonePrelevementDAL.getMaxIdZonePrelevement() + 1, "", myDataObject.lat1Property, myDataObject.lat2Property, myDataObject.lat3Property, myDataObject.lat4Property, myDataObject.long1Property, myDataObject.long2Property, myDataObject.long3Property, myDataObject.long4Property);
+            listeZonePrelevements.Items.Refresh();         
         }
-        private void supprimerButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void supprimerButton_Click(object sender, EventArgs e)
         {
             ZonePrelevementViewModel toRemove = (ZonePrelevementViewModel)listeZonePrelevements.SelectedItem;
             lp.Remove(toRemove);
             listeZonePrelevements.Items.Refresh();
             ZonePrelevementDAO.supprimerZonePrelevement(selectedZonePrelevementId);
         }
-        private void listeZonePrelevements_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listeZonePrelevements_SelectionChanged(object sender, EventArgs e)
         {
             if ((listeZonePrelevements.SelectedIndex < lp.Count) && (listeZonePrelevements.SelectedIndex >= 0))
             {
                 selectedZonePrelevementId = (lp.ElementAt<ZonePrelevementViewModel>(listeZonePrelevements.SelectedIndex)).idZonePrelevementProperty;
             }
+        }
+        private void redirectButton_Accueil(object sender, EventArgs e)
+        {
+            Window window = Window.GetWindow(this);
+            window.Content = new AfficherInterfaceSelection();
         }
     }
 }

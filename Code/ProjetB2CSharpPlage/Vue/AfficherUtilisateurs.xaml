@@ -9,16 +9,25 @@
       Title="AfficherUtilisateurs">
 
     <Grid>
-        <DataGrid Name="listeUtilisateurs" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUtilisateurs_SelectionChanged" Width="633">
+        <DataGrid Name="listeUtilisateurs" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="0,22,0,156" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUtilisateurs_SelectionChanged" Width="696">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="id" Binding="{Binding idUtilisateurProperty, Mode=OneWay}" />
-                <DataGridTextColumn Header="nom" Binding="{Binding nomUtilisateurProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="prenom" Binding="{Binding prenomUtilisateurProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="isAdmin" Binding="{Binding roleUtilisateurProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="password" Binding="{Binding passwordUtilisateurProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="login" Binding="{Binding loginUtilisateurProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="ID" Binding="{Binding idUtilisateurProperty, Mode=OneWay}" />
+                <DataGridTextColumn Header="Nom" Binding="{Binding nomUtilisateurProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Prenom" Binding="{Binding prenomUtilisateurProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="EstAdministrateur (0=non)" Binding="{Binding roleUtilisateurProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Password" Binding="{Binding passwordUtilisateurProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Login" Binding="{Binding loginUtilisateurProperty, Mode=TwoWay}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="supprimerButton" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick" BorderThickness="2,2,2,2" Margin="297,318,316,56"/>
+        <Button x:Name="supprimerButton" Content="Supprimer" Click="supprimerButton_Click" BorderThickness="2,2,2,2" Margin="695,153,1,156"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="182,328,0,0" TextWrapping="Wrap" Text="Nom" x:Name="Nom" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.356,0.536"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="261,328,0,0" TextWrapping="Wrap" Text="Prenom" x:Name="Prenom" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.356,0.536"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="329,328,0,0" TextWrapping="Wrap" Text="isAdmin (0=non)" x:Name="isAdmin" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.356,0.536"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="397,328,0,0" TextWrapping="Wrap" Text="password" x:Name="password" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.356,0.536"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="465,328,0,0" TextWrapping="Wrap" Text="login" x:Name="login" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.356,0.536"/>
+        <Button HorizontalAlignment="Left" Margin="533,328,0,0" VerticalAlignment="Top" Width="92" Height="33" Click="ajouterUtilisateur_Click">
+            <Label Content="Ajouter" Height="36"/>
+        </Button>
+        <Button x:Name="supprimerButton_Copy" Content="Accueil" Click="redirectButton_Accueil" BorderThickness="2,2,2,2" Margin="695,22,1,297"/>
     </Grid>
 </Page>

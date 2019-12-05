@@ -66,7 +66,7 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static int getMaxIdZonePrelevement()
         {
-            string query = "SELECT MAX(idZonePrelevement) FROM zoneprelevement;";
+            string query = "SELECT IFNULL(MAX(idZonePrelevement),0) FROM zoneprelevement;";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
 

@@ -1,22 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using ProjetB2CSharpPlage.ORM;
 using ProjetB2CSharpPlage.Ctrl;
 using ProjetB2CSharpPlage.DAL;
 using ProjetB2CSharpPlage.DAO;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace ProjetB2CSharpPlage.Vue
 {
@@ -29,25 +19,26 @@ namespace ProjetB2CSharpPlage.Vue
         UtilisateurViewModel myDataObject;
         UtilisateurDAL c = new UtilisateurDAL();
         ObservableCollection<UtilisateurViewModel> lu;
-        int compteur = 0;
         public AfficherUtilisateurs()
         {
             InitializeComponent();
             lu = UtilisateurORM.listeUtilisateurs();
             listeUtilisateurs.ItemsSource = lu;
         }
-        private void ajouterUser_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ajouterUtilisateur_Click(object sender, EventArgs e)
         {
             myDataObject = new UtilisateurViewModel();
-            //myDataObject.nomUtilisateurProperty = nom.Text;
-            UtilisateurViewModel nouveau = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, myDataObject.nomUtilisateurProperty, myDataObject.prenomUtilisateurProperty, myDataObject.roleUtilisateurProperty, myDataObject.passwordUtilisateurProperty, myDataObject.loginUtilisateurProperty);
+            myDataObject.nomUtilisateurProperty = Nom.Text;
+            myDataObject.loginUtilisateurProperty = login.Text;
+            myDataObject.passwordUtilisateurProperty = password.Text;
+            myDataObject.roleUtilisateurProperty = Convert.ToByte(isAdmin.Text);
+            myDataObject.prenomUtilisateurProperty = Prenom.Text;
+            UtilisateurViewModel nouveau = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, myDataObject.nomUtilisateurProperty, myDataObject.prenomUtilisateurProperty, myDataObject.roleUtilisateurProperty, myDataObject.loginUtilisateurProperty, myDataObject.passwordUtilisateurProperty);
             lu.Add(nouveau);
             UtilisateurDAO.insertUtilisateur(nouveau);
             listeUtilisateurs.Items.Refresh();
-            compteur = lu.Count();
-            myDataObject = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, "", "", myDataObject.roleUtilisateurProperty, "", "");
         }
-        private void supprimerButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void supprimerButton_Click(object sender, EventArgs e)
         {
             UtilisateurViewModel toRemove = (UtilisateurViewModel)listeUtilisateurs.SelectedItem;
             lu.Remove(toRemove);
@@ -60,6 +51,11 @@ namespace ProjetB2CSharpPlage.Vue
             {
                 selectedUtilisateurId = (lu.ElementAt<UtilisateurViewModel>(listeUtilisateurs.SelectedIndex)).idUtilisateurProperty;
             }
+        }
+        private void redirectButton_Accueil(object sender, EventArgs e)
+        {
+            Window window = Window.GetWindow(this);
+            window.Content = new AfficherInterfaceSelection();
         }
     }
 }
