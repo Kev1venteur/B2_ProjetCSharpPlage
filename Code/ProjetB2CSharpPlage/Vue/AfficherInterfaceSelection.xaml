@@ -11,7 +11,7 @@
     <Grid>
         <Button Content="Utilisateurs" Click="redirectButton_Utilisateurs" HorizontalAlignment="Left" Margin="76,49,0,0" VerticalAlignment="Top" Width="147" Height="64"></Button>
         <Button Content="Equipes" Click="redirectButton_Equipes" HorizontalAlignment="Left" Margin="537,49,0,0" VerticalAlignment="Top" Width="147" Height="64"></Button>
-        <Button Content="Zones de Prélèvement" Click="redirectButton_ZonesPrelevement" HorizontalAlignment="Left" Margin="76,290,0,0" VerticalAlignment="Top" Width="147" Height="64"></Button>
-        <Button Content="Accueil" Click="redirectButton_Accueil" HorizontalAlignment="Left" Margin="537,290,0,0" VerticalAlignment="Top" Width="147" Height="64"></Button>
+        <Button Content="Zones de Prélèvement" Click="redirectButton_ZonesPrelevements" HorizontalAlignment="Left" Margin="76,290,0,0" VerticalAlignment="Top" Width="147" Height="64"></Button>
+        <Button Content="Départements" Click="redirectButton_Departements" HorizontalAlignment="Left" Margin="537,290,0,0" VerticalAlignment="Top" Width="147" Height="64"></Button>
     </Grid>
 </Page>

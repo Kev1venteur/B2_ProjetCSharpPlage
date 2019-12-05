@@ -32,7 +32,7 @@ namespace ProjetB2CSharpPlage.Ctrl
             get { return nomEquipe; }
             set
             {
-                this.nomEquipe = value.ToUpper();
+                this.nomEquipe = value;
                 OnPropertyChanged("nomEquipeProperty");
             }
         }

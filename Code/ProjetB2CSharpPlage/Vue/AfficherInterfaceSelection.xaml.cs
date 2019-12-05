@@ -34,15 +34,15 @@ namespace ProjetB2CSharpPlage.Vue
             Window window = Window.GetWindow(this);
             window.Content = new AfficherUtilisateurs();
         }
-        private void redirectButton_ZonesPrelevement(object sender, EventArgs e)
+        private void redirectButton_ZonesPrelevements(object sender, EventArgs e)
         {
             Window window = Window.GetWindow(this);
             window.Content = new AfficherZonePrelevements();
         }
-        private void redirectButton_Accueil(object sender, EventArgs e)
+        private void redirectButton_Departements(object sender, EventArgs e)
         {
             Window window = Window.GetWindow(this);
-            window.Content = new AfficherInterfaceSelection();
+            window.Content = new AfficherDepartements();
         }
     }
 }
