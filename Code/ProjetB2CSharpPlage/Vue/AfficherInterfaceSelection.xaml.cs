@@ -44,5 +44,10 @@ namespace ProjetB2CSharpPlage.Vue
             Window window = Window.GetWindow(this);
             window.Content = new AfficherDepartements();
         }
+        private void redirectButton_Communes(object sender, EventArgs e)
+        {
+            Window window = Window.GetWindow(this);
+            window.Content = new AfficherCommunes();
+        }
     }
 }

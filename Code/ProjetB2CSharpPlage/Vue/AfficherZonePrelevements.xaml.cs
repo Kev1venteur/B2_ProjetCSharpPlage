@@ -39,14 +39,25 @@ namespace ProjetB2CSharpPlage.Vue
         {
             myDataObject = new ZonePrelevementViewModel();
             myDataObject.nomZonePrelevementProperty = Nom.Text;
-            myDataObject.lat1Property = Convert.ToDecimal(Lat1.Text);
-            myDataObject.lat2Property = Convert.ToDecimal(Lat2.Text);
-            myDataObject.lat3Property = Convert.ToDecimal(Lat3.Text);
-            myDataObject.lat4Property = Convert.ToDecimal(Lat4.Text);
-            myDataObject.long1Property = Convert.ToDecimal(Long1.Text);
-            myDataObject.long2Property = Convert.ToDecimal(Long2.Text);
-            myDataObject.long3Property = Convert.ToDecimal(Long3.Text);
-            myDataObject.long4Property = Convert.ToDecimal(Long4.Text);
+            Decimal defaultValue = 0.0M; //si la string est abhérente, les lat et long par défaut sont de 0,0
+            Decimal result;
+            string decimalValueToParse = Lat1.Text;
+            myDataObject.lat1Property = Decimal.TryParse(decimalValueToParse, out result) ? result : defaultValue;
+            decimalValueToParse = Lat2.Text;
+            myDataObject.lat2Property = Decimal.TryParse(decimalValueToParse, out result) ? result : defaultValue;
+            decimalValueToParse = Lat3.Text;
+            myDataObject.lat3Property = Decimal.TryParse(decimalValueToParse, out result) ? result : defaultValue;
+            decimalValueToParse = Lat4.Text;
+            myDataObject.lat4Property = Decimal.TryParse(decimalValueToParse, out result) ? result : defaultValue;
+            decimalValueToParse = Long1.Text;
+            myDataObject.long1Property = Decimal.TryParse(decimalValueToParse, out result) ? result : defaultValue;
+            decimalValueToParse = Long2.Text;
+            myDataObject.long2Property = Decimal.TryParse(decimalValueToParse, out result) ? result : defaultValue;
+            decimalValueToParse = Long3.Text;
+            myDataObject.long3Property = Decimal.TryParse(decimalValueToParse, out result) ? result : defaultValue;
+            decimalValueToParse = Long4.Text;
+            myDataObject.long4Property = Decimal.TryParse(decimalValueToParse, out result) ? result : defaultValue;
+
             ZonePrelevementViewModel nouveau = new ZonePrelevementViewModel(ZonePrelevementDAL.getMaxIdZonePrelevement() + 1, myDataObject.nomZonePrelevementProperty, myDataObject.lat1Property, myDataObject.lat2Property, myDataObject.lat3Property, myDataObject.lat4Property, myDataObject.long1Property, myDataObject.long2Property, myDataObject.long3Property, myDataObject.long4Property);
             lp.Add(nouveau);
             ZonePrelevementDAO.insertZonePrelevement(nouveau);

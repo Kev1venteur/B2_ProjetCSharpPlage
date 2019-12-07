@@ -20,7 +20,7 @@ namespace ProjetB2CSharpPlage.DAL
         public static ObservableCollection<DepartementDAO> selectDepartements()
         {
             ObservableCollection<DepartementDAO> l = new ObservableCollection<DepartementDAO>();
-            string query = "SELECT * FROM Departement;";
+            string query = "SELECT * FROM departement;";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
 
@@ -37,13 +37,13 @@ namespace ProjetB2CSharpPlage.DAL
         public static DepartementDAO getDepartement(int idDepartement)
         {
             string query = "SELECT * FROM departement WHERE idDepartement=" + idDepartement + ";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            DepartementDAO user = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
+            DepartementDAO departement = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
             reader.Close();
-            return user;
+            return departement;
         }
         public static void updateDepartement(DepartementDAO u)
         {
