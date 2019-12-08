@@ -49,5 +49,10 @@ namespace ProjetB2CSharpPlage.Vue
             Window window = Window.GetWindow(this);
             window.Content = new AfficherCommunes();
         }
+        private void redirectButton_Especes(object sender, EventArgs e)
+        {
+            Window window = Window.GetWindow(this);
+            window.Content = new AfficherEspeces();
+        }
     }
 }
