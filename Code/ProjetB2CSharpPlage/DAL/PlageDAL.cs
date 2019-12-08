@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace ProjetB2CSharpPlage.DAL
 {
-    public class CommuneDAL
+    public class PlageDAL
     {
         private static MySqlConnection connection;
-        public CommuneDAL()
+        public PlageDAL()
         {
             ConnexionBaseDAL.OpenConnection(); //  si la connexion est déjà ouverte, il ne la refera pas (voir code dans DALConnection)
             connection = ConnexionBaseDAL.connection;
         }
 
-        public static ObservableCollection<CommuneDAO> selectCommunes()
+        public static ObservableCollection<PlageDAO> selectPlages()
         {
-            ObservableCollection<CommuneDAO> l = new ObservableCollection<CommuneDAO>();
-            string query = "SELECT * FROM commune;";
+            ObservableCollection<PlageDAO> l = new ObservableCollection<PlageDAO>();
+            string query = "SELECT * FROM Plage;";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
 
@@ -29,58 +29,58 @@ namespace ProjetB2CSharpPlage.DAL
 
             while (reader.Read())
             {
-                CommuneDAO p = new CommuneDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+                PlageDAO p = new PlageDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetFloat(4));
                 l.Add(p);
             }
             reader.Close();
             return l;
         }
 
-        public static void updateCommune(CommuneDAO p)
+        public static void updatePlage(PlageDAO p)
         {
-            string query = "UPDATE commune set nom=\"" + p.nomCommuneDAO + "\", idDepartement=\"" + p.idDepartementCommuneDAO + "\" where idCommune=" + p.idCommuneDAO + ";";
+            string query = "UPDATE plage set nom=\"" + p.nomPlageDAO + "\", idCommune=\"" + p.idCommunePlageDAO + "\", nbEspecesDifferentes=\"" + p.nbEspecesDifferentesPlageDAO + "\", surface=\"" + p.surfacePlageDAO + "\" where idPlage=" + p.idPlageDAO + ";";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
-        public static void insertCommune(CommuneDAO p)
+        public static void insertPlage(PlageDAO p)
         {
-            int id = getMaxIdCommune() + 1;
-            string query = "INSERT INTO commune VALUES (\"" + id + "\",\"" + p.nomCommuneDAO + "\",\"" + p.idDepartementCommuneDAO + "\");";
+            int id = getMaxIdPlage() + 1;
+            string query = "INSERT INTO Plage VALUES (\"" + id + "\",\"" + p.nomPlageDAO + "\",\"" + p.idCommunePlageDAO + "\",\"" + p.nbEspecesDifferentesPlageDAO + "\",\"" + p.surfacePlageDAO + "\");";
             MySqlCommand cmd2 = new MySqlCommand(query, connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
-        public static void supprimerCommune(int id)
+        public static void supprimerPlage(int id)
         {
-            string query = "DELETE FROM commune WHERE idCommune = \"" + id + "\";";
+            string query = "DELETE FROM plage WHERE idPlage = \"" + id + "\";";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
-        public static int getMaxIdCommune()
+        public static int getMaxIdPlage()
         {
-            string query = "SELECT IFNULL(MAX(idCommune),0) FROM commune;";
+            string query = "SELECT IFNULL(MAX(idPlage),0) FROM plage;";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            int maxIdCommune = reader.GetInt32(0);
+            int maxIdPlage = reader.GetInt32(0);
             reader.Close();
-            return maxIdCommune;
+            return maxIdPlage;
         }
 
-        public static CommuneDAO getCommune(int idCommune)
+        public static PlageDAO getPlage(int idPlage)
         {
-            string query = "SELECT * FROM commune WHERE idCommune=" + idCommune + ";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+            string query = "SELECT * FROM Plage WHERE id=" + idPlage + ";";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            CommuneDAO com = new CommuneDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+            PlageDAO pers = new PlageDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetFloat(4));
             reader.Close();
-            return com;
+            return pers;
         }
     }
 }
