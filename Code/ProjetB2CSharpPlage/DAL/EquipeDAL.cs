@@ -20,7 +20,7 @@ namespace ProjetB2CSharpPlage.DAL
         public static ObservableCollection<EquipeDAO> selectEquipes()
         {
             ObservableCollection<EquipeDAO> l = new ObservableCollection<EquipeDAO>();
-            string query = "SELECT * FROM Equipe;";
+            string query = "SELECT * FROM equipe;";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
 
@@ -37,7 +37,7 @@ namespace ProjetB2CSharpPlage.DAL
         public static EquipeDAO getEquipe(int idEquipe)
         {
             string query = "SELECT * FROM equipe WHERE idEquipe=" + idEquipe + ";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();

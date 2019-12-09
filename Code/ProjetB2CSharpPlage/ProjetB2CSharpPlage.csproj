@@ -76,6 +76,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vue\AfficherEtudes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vue\AfficherInterfaceSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,6 +116,7 @@
     <Compile Include="Ctrl\DepartementViewModel.cs" />
     <Compile Include="Ctrl\EquipeViewModel.cs" />
     <Compile Include="Ctrl\EspeceViewModel.cs" />
+    <Compile Include="Ctrl\EtudeViewModel.cs" />
     <Compile Include="Ctrl\PlageViewModel.cs" />
     <Compile Include="Ctrl\UtilisateurViewModel.cs" />
     <Compile Include="Ctrl\ZonePrelevementViewModel.cs" />
@@ -119,6 +124,7 @@
     <Compile Include="DAL\DepartementDAL.cs" />
     <Compile Include="DAL\EquipeDAL.cs" />
     <Compile Include="DAL\EspeceDAL.cs" />
+    <Compile Include="DAL\EtudeDAL.cs" />
     <Compile Include="DAL\PlageDAL.cs" />
     <Compile Include="DAL\UtilisateurDAL.cs" />
     <Compile Include="DAL\ConnexionUtilisateurDAL.cs" />
@@ -129,6 +135,7 @@
     <Compile Include="DAO\DepartementDAO.cs" />
     <Compile Include="DAO\EquipeDAO.cs" />
     <Compile Include="DAO\EspeceDAO.cs" />
+    <Compile Include="DAO\EtudeDAO.cs" />
     <Compile Include="DAO\PlageDAO.cs" />
     <Compile Include="DAO\UtilisateurDAO.cs" />
     <Compile Include="DAO\ZonePrelevementDAO.cs" />
@@ -136,6 +143,7 @@
     <Compile Include="ORM\DepartementORM.cs" />
     <Compile Include="ORM\EquipeORM.cs" />
     <Compile Include="ORM\EspeceORM.cs" />
+    <Compile Include="ORM\EtudeORM.cs" />
     <Compile Include="ORM\PlageORM.cs" />
     <Compile Include="ORM\ZonePrelevementORM.cs" />
     <Compile Include="Vue\AfficherCommunes.xaml.cs">
@@ -149,6 +157,9 @@
     </Compile>
     <Compile Include="Vue\AfficherEspeces.xaml.cs">
       <DependentUpon>AfficherEspeces.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\AfficherEtudes.xaml.cs">
+      <DependentUpon>AfficherEtudes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vue\AfficherInterfaceSelection.xaml.cs">
       <DependentUpon>AfficherInterfaceSelection.xaml</DependentUpon>

@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
-using ProjetB2CSharpPlage.DAO;
+using ProjetB2CSharpEtude.DAO;
+using ProjetB2CSharpPlage.DAL;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,21 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetB2CSharpPlage.DAL
+namespace ProjetB2CSharpEtude.DAL
 {
-    public class PlageDAL
+    public class EtudeDAL
     {
         private static MySqlConnection connection;
-        public PlageDAL()
+        public EtudeDAL()
         {
             ConnexionBaseDAL.OpenConnection(); //  si la connexion est déjà ouverte, il ne la refera pas (voir code dans DALConnection)
             connection = ConnexionBaseDAL.connection;
         }
 
-        public static ObservableCollection<PlageDAO> selectPlages()
+        public static ObservableCollection<EtudeDAO> selectEtudes()
         {
-            ObservableCollection<PlageDAO> l = new ObservableCollection<PlageDAO>();
-            string query = "SELECT * FROM plage;";
+            ObservableCollection<EtudeDAO> l = new ObservableCollection<EtudeDAO>();
+            string query = "SELECT * FROM etude;";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
 
@@ -29,56 +30,55 @@ namespace ProjetB2CSharpPlage.DAL
 
             while (reader.Read())
             {
-                PlageDAO p = new PlageDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetFloat(4));
+                EtudeDAO p = new EtudeDAO(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetInt32(3), reader.GetInt32(4));
                 l.Add(p);
             }
             reader.Close();
             return l;
         }
 
-        public static void updatePlage(PlageDAO p)
+        public static void updateEtude(EtudeDAO p)
         {
-            string query = "UPDATE plage set nom=\"" + p.nomPlageDAO + "\", idCommune=\"" + p.idCommunePlageDAO + "\", nbEspecesDifferentes=\"" + p.nbEspecesDifferentesPlageDAO + "\", surface=\"" + p.surfacePlageDAO + "\" where idPlage=" + p.idPlageDAO + ";";
+            string query = "UPDATE etude set titre=\"" + p.titreEtudeDAO + "\", idEquipe=\"" + p.idEquipeEtudeDAO + "\", nbTotalEspeceRencontree=\"" + p.nbTotalEspeceRencontreeEtudeDAO + "\", date=\"" + p.dateEtudeDAO + "\" where idEtude=" + p.idEtudeDAO + ";";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
-        public static void insertPlage(PlageDAO p)
+        public static void insertEtude(EtudeDAO p)
         {
-            int id = getMaxIdPlage() + 1;
-            string query = "INSERT INTO Plage VALUES (\"" + id + "\",\"" + p.nomPlageDAO + "\",\"" + p.idCommunePlageDAO + "\",\"" + p.nbEspecesDifferentesPlageDAO + "\",\"" + p.surfacePlageDAO + "\");";
+            int id = getMaxIdEtude() + 1;
+            string query = "INSERT INTO etude VALUES (\"" + id + "\",\"" + p.dateEtudeDAO + "\",\"" + p.titreEtudeDAO + "\",\"" + p.nbTotalEspeceRencontreeEtudeDAO + "\",\"" + p.idEquipeEtudeDAO + "\");";
             MySqlCommand cmd2 = new MySqlCommand(query, connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
-        public static void supprimerPlage(int id)
+        public static void supprimerEtude(int id)
         {
-            string query = "DELETE FROM plage WHERE idPlage = \"" + id + "\";";
+            string query = "DELETE FROM etude WHERE idEtude = \"" + id + "\";";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
-        public static int getMaxIdPlage()
+        public static int getMaxIdEtude()
         {
-            string query = "SELECT IFNULL(MAX(idPlage),0) FROM plage;";
+            string query = "SELECT IFNULL(MAX(idEtude),0) FROM etude;";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
-
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            int maxIdPlage = reader.GetInt32(0);
+            int maxIdEtude = reader.GetInt32(0);
             reader.Close();
-            return maxIdPlage;
+            return maxIdEtude;
         }
 
-        public static PlageDAO getPlage(int idPlage)
+        public static EtudeDAO getEtude(int idEtude)
         {
-            string query = "SELECT * FROM Plage WHERE id=" + idPlage + ";";
+            string query = "SELECT * FROM Etude WHERE id=" + idEtude + ";";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            PlageDAO pers = new PlageDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetFloat(4));
+            EtudeDAO pers = new EtudeDAO(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetInt32(3), reader.GetInt32(4));
             reader.Close();
             return pers;
         }

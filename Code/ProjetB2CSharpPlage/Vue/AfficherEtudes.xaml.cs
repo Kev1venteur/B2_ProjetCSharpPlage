@@ -1,0 +1,89 @@
+﻿using ProjetB2CSharpEtude.Ctrl;
+using ProjetB2CSharpEtude.DAL;
+using ProjetB2CSharpEtude.DAO;
+using ProjetB2CSharpEtude.ORM;
+using ProjetB2CSharpPlage.ORM;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace ProjetB2CSharpPlage.Vue
+{
+    /// <summary>
+    /// Logique d'interaction pour AfficherEtudes.xaml
+    /// </summary>
+    public partial class AfficherEtudes : Page
+    {
+        int selectedEtudeId;
+        EtudeViewModel myDataObject;
+        EtudeDAL c = new EtudeDAL();
+        ObservableCollection<EtudeViewModel> lu;
+        public AfficherEtudes()
+        {
+            InitializeComponent();
+            lu = EtudeORM.listeEtudes();
+            listeEtudes.ItemsSource = lu;
+            CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+            culture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
+            culture.DateTimeFormat.LongTimePattern = "";
+            Thread.CurrentThread.CurrentCulture = culture;
+        }
+        private void ajouterEtude_Click(object sender, EventArgs e)
+        {
+            myDataObject = new EtudeViewModel();
+            myDataObject.titreEtudeProperty = Titre.Text;
+            //////////////////////////////////////////////////id équipe
+            string EquipeIdToParse = idEquipe.Text;
+            int result;
+            int defaultValue = 1; //si la string est abhérente, la equipe par défaut est 1 -> mauvaisNumDépartement
+            myDataObject.equipeEtude = EquipeORM.getEquipe(int.TryParse(EquipeIdToParse, out result) ? result : defaultValue);
+            //////////////////////////////////////////////////nomber especes
+            string valueToParse = nbEspeces.Text;
+            defaultValue = 0;
+            myDataObject.nbTotalEspeceRencontreeEtudeProperty = int.TryParse(valueToParse, out result) ? result : defaultValue;
+            //////////////////////////////////////////////////date
+            string valueToParse2 = Date.Text;
+            DateTime result2;
+            DateTime defaultValue2 = DateTime.Now;
+            myDataObject.dateEtudeProperty = DateTime.TryParse(valueToParse2, out result2) ? result2 : defaultValue2;
+            //////////////////////////////////////////////////insert
+            EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject.dateEtudeProperty, myDataObject.titreEtudeProperty, myDataObject.nbTotalEspeceRencontreeEtudeProperty, myDataObject.equipeEtudeProperty);
+            lu.Add(nouveau);
+            EtudeDAO.insertEtude(nouveau);
+            listeEtudes.Items.Refresh();
+        }
+        private void supprimerButton_Click(object sender, EventArgs e)
+        {
+            EtudeViewModel toRemove = (EtudeViewModel)listeEtudes.SelectedItem;
+            lu.Remove(toRemove);
+            listeEtudes.Items.Refresh();
+            EtudeDAO.supprimerEtude(selectedEtudeId);
+        }
+        private void listeEtudes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((listeEtudes.SelectedIndex < lu.Count) && (listeEtudes.SelectedIndex >= 0))
+            {
+                selectedEtudeId = (lu.ElementAt<EtudeViewModel>(listeEtudes.SelectedIndex)).idEtudeProperty;
+            }
+        }
+        private void redirectButton_Accueil(object sender, EventArgs e)
+        {
+            Window window = Window.GetWindow(this);
+            window.Content = new AfficherInterfaceSelection();
+        }
+    }
+}
