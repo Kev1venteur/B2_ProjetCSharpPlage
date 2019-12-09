@@ -14,7 +14,7 @@
                 <DataGridTextColumn Header="ID" Binding="{Binding idEtudeProperty, Mode=OneWay}" />
                 <DataGridTextColumn Header="Date" Binding="{Binding dateEtudeProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="Titre" Binding="{Binding titreEtudeProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="Nombre d'especes Total" Binding="{Binding nbTotalEspeceRencontreePlageProperty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Nombre d'especes Total" Binding="{Binding nbTotalEspeceRencontreeEtudeProperty, Mode=TwoWay}" />
                 <DataGridTextColumn Header="Nom Equipe Responsable" Binding="{Binding equipeEtudeNameProperty, Mode=OneWay}" />
             </DataGrid.Columns>
         </DataGrid>

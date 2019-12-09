@@ -61,7 +61,7 @@ namespace ProjetB2CSharpEtude.DAL
         }
         public static int getMaxIdEtude()
         {
-            string query = "SELECT IFNULL(MAX(idEtude),0) FROM etude;";
+            string query = "SELECT IFNULL(MAX(idEtude),0) FROM etude;"; //Si null retourne 0 et pas 'null'
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -73,7 +73,7 @@ namespace ProjetB2CSharpEtude.DAL
 
         public static EtudeDAO getEtude(int idEtude)
         {
-            string query = "SELECT * FROM Etude WHERE id=" + idEtude + ";";
+            string query = "SELECT * FROM etude WHERE id=" + idEtude + ";";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();

@@ -51,7 +51,7 @@ namespace ProjetB2CSharpPlage.Vue
             int result;
             int defaultValue = 1; //si la string est abhérente, la equipe par défaut est 1 -> mauvaisNumDépartement
             myDataObject.equipeEtude = EquipeORM.getEquipe(int.TryParse(EquipeIdToParse, out result) ? result : defaultValue);
-            //////////////////////////////////////////////////nomber especes
+            //////////////////////////////////////////////////nombre especes
             string valueToParse = nbEspeces.Text;
             defaultValue = 0;
             myDataObject.nbTotalEspeceRencontreeEtudeProperty = int.TryParse(valueToParse, out result) ? result : defaultValue;
