@@ -34,10 +34,10 @@ namespace ProjetB2CSharpPlage.Vue
             InitializeComponent();
             lu = DepartementORM.listeDepartements();
             listeDepartements.ItemsSource = lu;
+            myDataObject = new DepartementViewModel();
         }
         private void ajouterDepartement_Click(object sender, EventArgs e)
         {
-            myDataObject = new DepartementViewModel();
             myDataObject.nomDepartementProperty = Nom.Text;
             DepartementViewModel nouveau = new DepartementViewModel(DepartementDAL.getMaxIdDepartement() + 1, myDataObject.nomDepartementProperty);
             lu.Add(nouveau);

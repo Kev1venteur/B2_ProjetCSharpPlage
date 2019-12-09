@@ -34,10 +34,10 @@ namespace ProjetB2CSharpPlage.Vue
             InitializeComponent();
             lu = EspeceORM.listeEspeces();
             listeEspeces.ItemsSource = lu;
+            myDataObject = new EspeceViewModel();
         }
         private void ajouterEspece_Click(object sender, EventArgs e)
         {
-            myDataObject = new EspeceViewModel();
             myDataObject.nomEspeceProperty = Nom.Text;
             EspeceViewModel nouveau = new EspeceViewModel(EspeceDAL.getMaxIdEspece() + 1, myDataObject.nomEspeceProperty);
             lu.Add(nouveau);

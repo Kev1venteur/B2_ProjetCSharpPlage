@@ -37,6 +37,7 @@ namespace ProjetB2CSharpPlage.Vue
             InitializeComponent();
             lu = EtudeORM.listeEtudes();
             listeEtudes.ItemsSource = lu;
+            myDataObject = new EtudeViewModel();
             CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
             culture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
             culture.DateTimeFormat.LongTimePattern = "";
@@ -44,7 +45,6 @@ namespace ProjetB2CSharpPlage.Vue
         }
         private void ajouterEtude_Click(object sender, EventArgs e)
         {
-            myDataObject = new EtudeViewModel();
             myDataObject.titreEtudeProperty = Titre.Text;
             //////////////////////////////////////////////////id équipe
             string EquipeIdToParse = idEquipe.Text;

@@ -34,10 +34,10 @@ namespace ProjetB2CSharpPlage.Vue
             InitializeComponent();
             lp = ZonePrelevementORM.listeZonePrelevements();
             listeZonePrelevements.ItemsSource = lp;
+            myDataObject = new ZonePrelevementViewModel();
         }
         private void ajouterZone_Click(object sender, EventArgs e)
         {
-            myDataObject = new ZonePrelevementViewModel();
             myDataObject.nomZonePrelevementProperty = Nom.Text;
             Decimal defaultValue = 0.0M; //si la string est abhérente, les lat et long par défaut sont de 0,0
             Decimal result;

@@ -34,10 +34,10 @@ namespace ProjetB2CSharpPlage.Vue
             InitializeComponent();
             lu = EquipeORM.listeEquipes();
             listeEquipes.ItemsSource = lu;
+            myDataObject = new EquipeViewModel();
         }
         private void ajouterEquipe_Click(object sender, EventArgs e)
         {
-            myDataObject = new EquipeViewModel();
             myDataObject.nomEquipeProperty = Nom.Text;
             myDataObject.nombreMembresEquipeProperty = 0;
             EquipeViewModel nouveau = new EquipeViewModel(EquipeDAL.getMaxIdEquipe() + 1, myDataObject.nomEquipeProperty, myDataObject.nombreMembresEquipeProperty);

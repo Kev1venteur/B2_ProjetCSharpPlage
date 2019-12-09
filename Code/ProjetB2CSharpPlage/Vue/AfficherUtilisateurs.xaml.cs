@@ -24,10 +24,10 @@ namespace ProjetB2CSharpPlage.Vue
             InitializeComponent();
             lu = UtilisateurORM.listeUtilisateurs();
             listeUtilisateurs.ItemsSource = lu;
+            myDataObject = new UtilisateurViewModel();
         }
         private void ajouterUtilisateur_Click(object sender, EventArgs e)
         {
-            myDataObject = new UtilisateurViewModel();
             myDataObject.nomUtilisateurProperty = Nom.Text;
             myDataObject.loginUtilisateurProperty = login.Text;
             myDataObject.passwordUtilisateurProperty = password.Text;

@@ -34,10 +34,10 @@ namespace ProjetB2CSharpPlage.Vue
             InitializeComponent();
             lu = CommuneORM.listeCommunes();
             listeCommunes.ItemsSource = lu;
+            myDataObject = new CommuneViewModel();
         }
         private void ajouterCommune_Click(object sender, EventArgs e)
         {
-            myDataObject = new CommuneViewModel();
             myDataObject.nomCommuneProperty = Nom.Text;
             string DepartementIdToParse = Departement.Text;
             int defaultValue = 1; //si la string est abhérente, le département par défaut est 1 -> mauvaisNumDépartement

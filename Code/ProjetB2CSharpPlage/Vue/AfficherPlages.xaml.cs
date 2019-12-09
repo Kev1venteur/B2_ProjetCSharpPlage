@@ -34,10 +34,10 @@ namespace ProjetB2CSharpPlage.Vue
             InitializeComponent();
             lu = PlageORM.listePlages();
             listePlages.ItemsSource = lu;
+            myDataObject = new PlageViewModel();
         }
         private void ajouterPlage_Click(object sender, EventArgs e)
         {
-            myDataObject = new PlageViewModel();
             myDataObject.nomPlageProperty = Nom.Text;
             string CommuneIdToParse = Commune.Text;
             int result;
