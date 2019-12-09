@@ -80,6 +80,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vue\AfficherPageConnexion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vue\AfficherPlages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -144,6 +148,9 @@
     </Compile>
     <Compile Include="Vue\AfficherInterfaceSelection.xaml.cs">
       <DependentUpon>AfficherInterfaceSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\AfficherPageConnexion.xaml.cs">
+      <DependentUpon>AfficherPageConnexion.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vue\AfficherPlages.xaml.cs">
       <DependentUpon>AfficherPlages.xaml</DependentUpon>

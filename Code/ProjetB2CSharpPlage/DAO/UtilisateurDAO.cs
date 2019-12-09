@@ -39,6 +39,12 @@ namespace ProjetB2CSharpPlage.DAO
             return p;
         }
 
+        public static UtilisateurDAO getUtilisateurs(string loginUtilisateur)
+        {
+            UtilisateurDAO p = UtilisateurDAL.getUtilisateur(loginUtilisateur);
+            return p;
+        }
+
         public static void updateUtilisateur(UtilisateurViewModel u)
         {
             UtilisateurDAL.updateUtilisateur(new UtilisateurDAO(u.idUtilisateurProperty, u.nomUtilisateurProperty, u.prenomUtilisateurProperty, u.roleUtilisateurProperty, u.passwordUtilisateurProperty, u.loginUtilisateurProperty));

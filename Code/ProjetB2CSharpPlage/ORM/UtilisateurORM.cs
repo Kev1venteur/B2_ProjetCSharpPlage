@@ -18,6 +18,13 @@ namespace ProjetB2CSharpPlage.ORM
             return p;
         }
 
+        public static UtilisateurViewModel getUtilisateur(string loginUtilisateur)
+        {
+            UtilisateurDAO pDAO = UtilisateurDAO.getUtilisateurs(loginUtilisateur);
+            UtilisateurViewModel p = new UtilisateurViewModel(pDAO.idUtilisateurDAO, pDAO.nomUtilisateurDAO, pDAO.prenomUtilisateurDAO, pDAO.roleUtilisateurDAO, pDAO.passwordUtilisateurDAO, pDAO.loginUtilisateurDAO);
+            return p;
+        }
+
         public static ObservableCollection<UtilisateurViewModel> listeUtilisateurs()
         {
             ObservableCollection<UtilisateurDAO> lDAO = UtilisateurDAO.listeUtilisateurs();

@@ -47,6 +47,17 @@ namespace ProjetB2CSharpPlage.DAL
             reader.Close();
             return user;
         }
+        public static UtilisateurDAO getUtilisateur(string loginUtilisateur)
+        {
+            string query = "SELECT * FROM utilisateur WHERE login=\"" + loginUtilisateur + "\";";
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+            cmd.ExecuteNonQuery();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            UtilisateurDAO user = new UtilisateurDAO(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetByte(3), reader.GetString(4), reader.GetString(5));
+            reader.Close();
+            return user;
+        }
         public static void updateUtilisateur(UtilisateurDAO u)
         {
             u.passwordUtilisateurDAO = hash(u.passwordUtilisateurDAO);

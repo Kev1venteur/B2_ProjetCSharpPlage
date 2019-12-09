@@ -25,7 +25,7 @@ namespace ProjetB2CSharpPlage
         public MainWindow()
         {
             InitializeComponent();
-            this.Content = new AfficherInterfaceSelection();
+            this.Content = new AfficherPageConnexion();
         }
     }
 }
