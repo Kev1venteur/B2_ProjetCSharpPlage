@@ -9,6 +9,7 @@
       Title="AfficherInterfaceSelection">
 
     <Grid>
+        <Image Source="C:\Users\Red\source\repos\Git\ProjetB2CSharpPlage\Annexes\Images\1.jpg"/>
         <Button Content="Utilisateurs" Click="redirectButton_Utilisateurs" HorizontalAlignment="Left" Margin="76,49,0,0" VerticalAlignment="Top" Width="147" Height="64"></Button>
         <Button Content="Equipes" Click="redirectButton_Equipes" HorizontalAlignment="Left" Margin="537,49,0,0" VerticalAlignment="Top" Width="147" Height="64"></Button>
         <Button Content="Zones de Prélèvement" Click="redirectButton_ZonesPrelevements" HorizontalAlignment="Left" Margin="76,341,0,0" VerticalAlignment="Top" Width="147" Height="64"></Button>
