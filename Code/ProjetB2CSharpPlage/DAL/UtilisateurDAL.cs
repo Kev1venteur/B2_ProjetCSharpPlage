@@ -54,7 +54,15 @@ namespace ProjetB2CSharpPlage.DAL
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            UtilisateurDAO user = new UtilisateurDAO(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetByte(3), reader.GetString(4), reader.GetString(5));
+            UtilisateurDAO user;
+            if (reader.HasRows)
+            {
+                user = new UtilisateurDAO(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetByte(3), reader.GetString(4), reader.GetString(5));
+            }
+            else
+            {
+                user = new UtilisateurDAO(0, "", "", 0, "", "");
+            }
             reader.Close();
             return user;
         }

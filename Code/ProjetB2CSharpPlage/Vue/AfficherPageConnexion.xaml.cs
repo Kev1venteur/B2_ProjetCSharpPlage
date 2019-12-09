@@ -38,6 +38,10 @@ namespace ProjetB2CSharpPlage.Vue
             {
                 window.Content = new AfficherInterfaceSelection();
             }
+            else
+            {
+                window.Content = new AfficherPageMauvaisLogin();
+            }
         }
     }
 }
