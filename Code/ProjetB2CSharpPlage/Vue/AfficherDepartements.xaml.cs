@@ -39,7 +39,11 @@ namespace ProjetB2CSharpPlage.Vue
         private void ajouterDepartement_Click(object sender, EventArgs e)
         {
             myDataObject.nomDepartementProperty = Nom.Text;
-            DepartementViewModel nouveau = new DepartementViewModel(DepartementDAL.getMaxIdDepartement() + 1, myDataObject.nomDepartementProperty);
+            string valueToParse = NumeroDepartement.Text;
+            int result;
+            int defaultValue = 0;
+            myDataObject.numeroDepartementProperty = int.TryParse(valueToParse, out result) ? result : defaultValue;
+            DepartementViewModel nouveau = new DepartementViewModel(DepartementDAL.getMaxIdDepartement() + 1, myDataObject.nomDepartementProperty, myDataObject.numeroDepartementProperty);
             lu.Add(nouveau);
             DepartementDAO.insertDepartement(nouveau);
             listeDepartements.Items.Refresh();

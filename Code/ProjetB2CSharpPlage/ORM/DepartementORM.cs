@@ -14,7 +14,7 @@ namespace ProjetB2CSharpPlage.ORM
         public static DepartementViewModel getDepartement(int idDepartement)
         {
             DepartementDAO pDAO = DepartementDAO.getDepartements(idDepartement);
-            DepartementViewModel p = new DepartementViewModel(pDAO.idDepartementDAO, pDAO.nomDepartementDAO);
+            DepartementViewModel p = new DepartementViewModel(pDAO.idDepartementDAO, pDAO.nomDepartementDAO, pDAO.numeroDepartementDAO);
             return p;
         }
 
@@ -24,7 +24,7 @@ namespace ProjetB2CSharpPlage.ORM
             ObservableCollection<DepartementViewModel> l = new ObservableCollection<DepartementViewModel>();
             foreach (DepartementDAO element in lDAO)
             {
-                DepartementViewModel p = new DepartementViewModel(element.idDepartementDAO, element.nomDepartementDAO);
+                DepartementViewModel p = new DepartementViewModel(element.idDepartementDAO, element.nomDepartementDAO, element.numeroDepartementDAO);
                 l.Add(p);
             }
             return l;

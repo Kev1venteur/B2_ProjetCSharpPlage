@@ -12,13 +12,15 @@ namespace ProjetB2CSharpPlage.Ctrl
     {
         private int idDepartement;
         private string nomDepartement;
+        private int numeroDepartement;
 
         public DepartementViewModel() { }
 
-        public DepartementViewModel(int id, string nom)
+        public DepartementViewModel(int id, string nom, int num)
         {
             this.idDepartement = id;
             this.nomDepartement = nom;
+            this.numeroDepartement = num;
         }
 
         public int idDepartementProperty
@@ -32,6 +34,15 @@ namespace ProjetB2CSharpPlage.Ctrl
             {
                 this.nomDepartement = value;
                 OnPropertyChanged("nomDepartementProperty");
+            }
+        }
+        public int numeroDepartementProperty
+        {
+            get { return numeroDepartement; }
+            set
+            {
+                this.numeroDepartement = value;
+                OnPropertyChanged("numeroDepartementProperty");
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;

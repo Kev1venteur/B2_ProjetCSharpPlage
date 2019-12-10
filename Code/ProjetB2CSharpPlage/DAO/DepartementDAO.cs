@@ -13,10 +13,12 @@ namespace ProjetB2CSharpPlage.DAO
     {
         public int idDepartementDAO;
         public string nomDepartementDAO;
-        public DepartementDAO(int idDepartementDAO, string nomDepartementDAO)
+        public int numeroDepartementDAO;
+        public DepartementDAO(int idDepartementDAO, string nomDepartementDAO, int numeroDepartementDAO)
         {
             this.idDepartementDAO = idDepartementDAO;
             this.nomDepartementDAO = nomDepartementDAO;
+            this.numeroDepartementDAO = numeroDepartementDAO;
         }
         public static ObservableCollection<DepartementDAO> listeDepartements()
         {
@@ -32,7 +34,7 @@ namespace ProjetB2CSharpPlage.DAO
 
         public static void updateDepartement(DepartementViewModel u)
         {
-            DepartementDAL.updateDepartement(new DepartementDAO(u.idDepartementProperty, u.nomDepartementProperty));
+            DepartementDAL.updateDepartement(new DepartementDAO(u.idDepartementProperty, u.nomDepartementProperty, u.numeroDepartementProperty));
         }
 
         public static void supprimerDepartement(int idDepartement)
@@ -42,7 +44,7 @@ namespace ProjetB2CSharpPlage.DAO
 
         public static void insertDepartement(DepartementViewModel u)
         {
-            DepartementDAL.insertDepartement(new DepartementDAO(u.idDepartementProperty, u.nomDepartementProperty));
+            DepartementDAL.insertDepartement(new DepartementDAO(u.idDepartementProperty, u.nomDepartementProperty, u.numeroDepartementProperty));
         }
     }
 }

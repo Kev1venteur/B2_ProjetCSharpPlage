@@ -28,7 +28,7 @@ namespace ProjetB2CSharpPlage.DAL
 
             while (reader.Read())
             {
-                DepartementDAO p = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
+                DepartementDAO p = new DepartementDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
                 l.Add(p);
             }
             reader.Close();
@@ -44,18 +44,18 @@ namespace ProjetB2CSharpPlage.DAL
             DepartementDAO departement;
             if (reader.HasRows)
             {
-                departement = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
+                departement = new DepartementDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
             }
             else
             {
-                departement = new DepartementDAO(1, "MauvaisNumeroDepartement");
+                departement = new DepartementDAO(1, "MauvaisNumeroDepartement", 0);
             }
             reader.Close();
             return departement;
         }
         public static void updateDepartement(DepartementDAO u)
         {
-            string query = "UPDATE departement set nom=\"" + u.nomDepartementDAO + ";";
+            string query = "UPDATE departement set nom=\"" + u.nomDepartementDAO + "\", numero=\"" + u.nomDepartementDAO + ";";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
@@ -63,7 +63,7 @@ namespace ProjetB2CSharpPlage.DAL
         public static void insertDepartement(DepartementDAO u)
         {
             int id = getMaxIdDepartement() + 1;
-            string query = "INSERT INTO departement VALUES (\"" + id + "\",\"" + u.nomDepartementDAO + "\");";
+            string query = "INSERT INTO departement VALUES (\"" + id + "\",\"" + u.nomDepartementDAO + "\",\"" + u.numeroDepartementDAO + "\");";
             MySqlCommand cmd2 = new MySqlCommand(query, connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
