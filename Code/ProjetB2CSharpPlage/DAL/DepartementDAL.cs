@@ -6,17 +6,11 @@ namespace ProjetB2CSharpPlage.DAL
 {
     class DepartementDAL
     {
-        private static MySqlConnection connection;
-        public DepartementDAL()
-        {
-            ConnexionBaseDAL.OpenConnection(); //  si la connexion est déjà ouverte, il ne la refera pas (voir code dans DALConnection)
-            connection = ConnexionBaseDAL.connection;
-        }
         public static ObservableCollection<DepartementDAO> selectDepartements()
         {
             ObservableCollection<DepartementDAO> l = new ObservableCollection<DepartementDAO>();
             string query = "SELECT * FROM departement;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -51,7 +45,7 @@ namespace ProjetB2CSharpPlage.DAL
         public static void updateDepartement(DepartementDAO u)
         {
             string query = "UPDATE departement set nom=\"" + u.nomDepartementDAO + "\", numero=\"" + u.nomDepartementDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -59,14 +53,14 @@ namespace ProjetB2CSharpPlage.DAL
         {
             int id = getMaxIdDepartement() + 1;
             string query = "INSERT INTO departement VALUES (\"" + id + "\",\"" + u.nomDepartementDAO + "\",\"" + u.numeroDepartementDAO + "\");";
-            MySqlCommand cmd2 = new MySqlCommand(query, connection);
+            MySqlCommand cmd2 = new MySqlCommand(query, ConnexionBaseDAL.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
         public static int getMaxIdDepartement()
         {
             string query = "SELECT IFNULL(MAX(idDepartement),0) FROM departement;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -78,7 +72,7 @@ namespace ProjetB2CSharpPlage.DAL
         public static void supprimerDepartement(int id)
         {
             string query = "DELETE FROM departement WHERE idDepartement = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }

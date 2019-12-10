@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using ProjetB2CSharpPlage.Vue;
-using System.Collections.ObjectModel;
+using ProjetB2CSharpPlage.DAL;
 
 namespace ProjetB2CSharpPlage
 {
@@ -24,6 +11,7 @@ namespace ProjetB2CSharpPlage
     {
         public MainWindow()
         {
+            ConnexionBaseDAL.OpenConnection();
             InitializeComponent();
             this.Content = new AfficherPageConnexion();
         }

@@ -8,17 +8,11 @@ namespace ProjetB2CSharpPlage.DAL
 {
     class UtilisateurDAL
     {
-        private static MySqlConnection connection;
-        public UtilisateurDAL()
-        {
-            ConnexionBaseDAL.OpenConnection(); //  si la connexion est déjà ouverte, il ne la refera pas (voir code dans DALConnection)
-            connection = ConnexionBaseDAL.connection;
-        }
         public static ObservableCollection<UtilisateurDAO> selectUtilisateurs()
         {
             ObservableCollection<UtilisateurDAO> l = new ObservableCollection<UtilisateurDAO>();
             string query = "SELECT * FROM utilisateur;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -34,7 +28,7 @@ namespace ProjetB2CSharpPlage.DAL
         public static UtilisateurDAO getUtilisateur(int idUtilisateur)
         {
             string query = "SELECT * FROM utilisateur WHERE idUtilisateur=" + idUtilisateur + ";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
@@ -65,7 +59,7 @@ namespace ProjetB2CSharpPlage.DAL
         {
             u.passwordUtilisateurDAO = hash(u.passwordUtilisateurDAO);
             string query = "UPDATE utilisateur set nom=\"" + u.nomUtilisateurDAO + "\", prenom=\"" + u.prenomUtilisateurDAO + "\", isAdmin=\"" + u.roleUtilisateurDAO + "\", password=\"" + u.passwordUtilisateurDAO + "\", login=\"" + u.loginUtilisateurDAO + "\" where idUtilisateur=" + u.idUtilisateurDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -74,14 +68,14 @@ namespace ProjetB2CSharpPlage.DAL
             u.passwordUtilisateurDAO = hash(u.passwordUtilisateurDAO);
             int id = getMaxIdUtilisateur() + 1;
             string query = "INSERT INTO utilisateur VALUES (\"" + id + "\",\"" + u.nomUtilisateurDAO + "\",\"" + u.prenomUtilisateurDAO + "\",\"" + u.roleUtilisateurDAO + "\",\"" + u.passwordUtilisateurDAO + "\",\"" + u.loginUtilisateurDAO + "\");";
-            MySqlCommand cmd2 = new MySqlCommand(query, connection);
+            MySqlCommand cmd2 = new MySqlCommand(query, ConnexionBaseDAL.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
         public static int getMaxIdUtilisateur()
         {
             string query = "SELECT IFNULL(MAX(idUtilisateur),0) FROM utilisateur;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -93,7 +87,7 @@ namespace ProjetB2CSharpPlage.DAL
         public static void supprimerUtilisateur(int id)
         {
             string query = "DELETE FROM utilisateur WHERE idUtilisateur = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }

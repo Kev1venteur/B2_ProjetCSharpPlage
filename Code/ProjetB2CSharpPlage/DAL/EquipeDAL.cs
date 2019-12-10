@@ -6,17 +6,11 @@ namespace ProjetB2CSharpPlage.DAL
 {
     class EquipeDAL
     {
-        private static MySqlConnection connection;
-        public EquipeDAL()
-        {
-            ConnexionBaseDAL.OpenConnection(); //  si la connexion est déjà ouverte, il ne la refera pas (voir code dans DALConnection)
-            connection = ConnexionBaseDAL.connection;
-        }
         public static ObservableCollection<EquipeDAO> selectEquipes()
         {
             ObservableCollection<EquipeDAO> l = new ObservableCollection<EquipeDAO>();
             string query = "SELECT * FROM equipe;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -51,7 +45,7 @@ namespace ProjetB2CSharpPlage.DAL
         public static void updateEquipe(EquipeDAO u)
         {
             string query = "UPDATE equipe set nom=\"" + u.nomEquipeDAO + "\", nombreMembres=\"" + u.nombreMembresEquipeDAO + "\" where idEquipe=" + u.idEquipeDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -59,14 +53,14 @@ namespace ProjetB2CSharpPlage.DAL
         {
             int id = getMaxIdEquipe() + 1;
             string query = "INSERT INTO equipe VALUES (\"" + id + "\",\"" + u.nomEquipeDAO + "\",\"" + u.nombreMembresEquipeDAO + "\");";
-            MySqlCommand cmd2 = new MySqlCommand(query, connection);
+            MySqlCommand cmd2 = new MySqlCommand(query, ConnexionBaseDAL.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
         public static int getMaxIdEquipe()
         {
             string query = "SELECT IFNULL(MAX(idEquipe),0) FROM equipe;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -78,7 +72,7 @@ namespace ProjetB2CSharpPlage.DAL
         public static void supprimerEquipe(int id)
         {
             string query = "DELETE FROM equipe WHERE idEquipe = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }

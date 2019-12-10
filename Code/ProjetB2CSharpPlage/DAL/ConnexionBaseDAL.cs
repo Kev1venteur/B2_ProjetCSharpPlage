@@ -15,7 +15,6 @@ namespace ProjetB2CSharpPlage.DAL
         {
             if (connection == null) //  si la connexion est déjà ouverte, il ne la refera pas 
             {
-
                 server = "localhost";
                 database = "projetb2csharp";
                 uid = "projetb2csharp";
