@@ -41,9 +41,17 @@ namespace ProjetB2CSharpPlage.DAL
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            EquipeDAO user = new EquipeDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+            EquipeDAO equip;
+            if (reader.HasRows)
+            {
+                equip = new EquipeDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+            }
+            else
+            {
+                equip = new EquipeDAO(1, "MauvaisNumeroEquipe", 0);
+            }
             reader.Close();
-            return user;
+            return equip;
         }
         public static void updateEquipe(EquipeDAO u)
         {

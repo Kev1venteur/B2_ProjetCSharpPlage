@@ -41,7 +41,15 @@ namespace ProjetB2CSharpPlage.DAL
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            DepartementDAO departement = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
+            DepartementDAO departement;
+            if (reader.HasRows)
+            {
+                departement = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
+            }
+            else
+            {
+                departement = new DepartementDAO(1, "MauvaisNumeroDepartement");
+            }
             reader.Close();
             return departement;
         }

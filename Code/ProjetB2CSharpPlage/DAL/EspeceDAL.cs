@@ -41,7 +41,15 @@ namespace ProjetB2CSharpPlage.DAL
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            EspeceDAO espece = new EspeceDAO(reader.GetInt32(0), reader.GetString(1));
+            EspeceDAO espece;
+            if (reader.HasRows)
+            {
+                espece = new EspeceDAO(reader.GetInt32(0), reader.GetString(1));
+            }
+            else
+            {
+                espece = new EspeceDAO(1, "MauvaisNumeroEspece");
+            }
             reader.Close();
             return espece;
         }

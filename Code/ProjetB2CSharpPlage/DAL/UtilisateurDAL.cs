@@ -61,7 +61,7 @@ namespace ProjetB2CSharpPlage.DAL
             }
             else
             {
-                user = new UtilisateurDAO(0, "", "", 0, "", "");
+                user = new UtilisateurDAO(1, "Bad", "UserName", 0, "none", "none");
             }
             reader.Close();
             return user;

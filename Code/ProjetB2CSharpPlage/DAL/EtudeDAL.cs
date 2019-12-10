@@ -78,7 +78,15 @@ namespace ProjetB2CSharpEtude.DAL
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            EtudeDAO pers = new EtudeDAO(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetInt32(3), reader.GetInt32(4));
+            EtudeDAO pers;
+            if (reader.HasRows)
+            {
+                pers = new EtudeDAO(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetInt32(3), reader.GetInt32(4));
+            }
+            else
+            {
+                pers = new EtudeDAO(1, DateTime.Now, "MauvaisNumeroEtude", 0, 1);
+            }
             reader.Close();
             return pers;
         }

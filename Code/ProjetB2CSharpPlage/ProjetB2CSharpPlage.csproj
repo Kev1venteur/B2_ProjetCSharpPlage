@@ -127,11 +127,9 @@
     <Compile Include="DAL\EtudeDAL.cs" />
     <Compile Include="DAL\PlageDAL.cs" />
     <Compile Include="DAL\UtilisateurDAL.cs" />
-    <Compile Include="DAL\ConnexionUtilisateurDAL.cs" />
     <Compile Include="DAL\ConnexionBaseDAL.cs" />
     <Compile Include="DAL\ZonePrelevementDAL.cs" />
     <Compile Include="DAO\CommuneDAO.cs" />
-    <Compile Include="DAO\ConnexionUtilisateurDAO.cs" />
     <Compile Include="DAO\DepartementDAO.cs" />
     <Compile Include="DAO\EquipeDAO.cs" />
     <Compile Include="DAO\EspeceDAO.cs" />

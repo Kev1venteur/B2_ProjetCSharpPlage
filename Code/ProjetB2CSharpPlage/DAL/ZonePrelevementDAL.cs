@@ -45,9 +45,17 @@ namespace ProjetB2CSharpPlage.DAL
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            ZonePrelevementDAO user = new ZonePrelevementDAO(reader.GetInt32(0), reader.GetString(1), reader.GetDecimal(2), reader.GetDecimal(3), reader.GetDecimal(4), reader.GetDecimal(5), reader.GetDecimal(6), reader.GetDecimal(7), reader.GetDecimal(8), reader.GetDecimal(9));
+            ZonePrelevementDAO zp;
+            if (reader.HasRows)
+            {
+                zp = new ZonePrelevementDAO(reader.GetInt32(0), reader.GetString(1), reader.GetDecimal(2), reader.GetDecimal(3), reader.GetDecimal(4), reader.GetDecimal(5), reader.GetDecimal(6), reader.GetDecimal(7), reader.GetDecimal(8), reader.GetDecimal(9));
+            }
+            else
+            {
+                zp = new ZonePrelevementDAO(1, "MauvaisNumeroZonePrelevement", 0.0M, 0.0M, 0.0M, 0.0M, 0.0M, 0.0M, 0.0M, 0.0M);
+            }
             reader.Close();
-            return user;
+            return zp;
         }
         public static void updateZonePrelevement(ZonePrelevementDAO u)
         {

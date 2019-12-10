@@ -78,7 +78,15 @@ namespace ProjetB2CSharpPlage.DAL
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            CommuneDAO com = new CommuneDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+            CommuneDAO com;
+            if (reader.HasRows)
+            {
+                com = new CommuneDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+            }
+            else
+            {
+                com = new CommuneDAO(1, "Mauvais Num Commune", 1);
+            }
             reader.Close();
             return com;
         }

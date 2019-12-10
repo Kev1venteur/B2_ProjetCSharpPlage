@@ -78,7 +78,15 @@ namespace ProjetB2CSharpPlage.DAL
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            PlageDAO pers = new PlageDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetFloat(4));
+            PlageDAO pers;
+            if (reader.HasRows)
+            {
+                pers = new PlageDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetFloat(4));
+            }
+            else
+            {
+                pers = new PlageDAO(1, "MauvaisNumeroPlage", 1, 0, 0);
+            }
             reader.Close();
             return pers;
         }
