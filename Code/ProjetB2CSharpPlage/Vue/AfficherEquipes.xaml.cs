@@ -28,7 +28,7 @@ namespace ProjetB2CSharpPlage.Vue
         private void ajouterEquipe_Click(object sender, EventArgs e)
         {
             myDataObject.nomEquipeProperty = Nom.Text;
-            myDataObject.nombreMembresEquipeProperty = 0;
+            myDataObject.nombreMembresEquipeProperty = 0; //On set le nombre de membre à  0 dès que l'on creer une équipe, il changera lors d'un select en compatnt le nombre d'entrées dans la table de liaison
             EquipeViewModel nouveau = new EquipeViewModel(EquipeDAL.getMaxIdEquipe() + 1, myDataObject.nomEquipeProperty, myDataObject.nombreMembresEquipeProperty);
             lu.Add(nouveau);
             EquipeORM.insertEquipe(nouveau);

@@ -44,7 +44,7 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void updateDepartement(DepartementDAO u)
         {
-            string query = "UPDATE departement set nom=\"" + u.nomDepartementDAO + "\", numero=\"" + u.nomDepartementDAO + ";";
+            string query = "UPDATE departement set nom =\"" + u.nomDepartementDAO + "\", numero=\"" + u.numeroDepartementDAO + "\" where idDepartement=" + u.idDepartementDAO + ";";
             MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();

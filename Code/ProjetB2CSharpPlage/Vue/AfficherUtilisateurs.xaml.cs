@@ -36,7 +36,7 @@ namespace ProjetB2CSharpPlage.Vue
             Byte defaultValue = 0; //Par défaut l'utilisateur n'est pas admin
             myDataObject.roleUtilisateurProperty = Byte.TryParse(decimalValueToParse, out result) ? result : defaultValue;
             myDataObject.prenomUtilisateurProperty = Prenom.Text;
-            UtilisateurViewModel nouveau = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, myDataObject.nomUtilisateurProperty, myDataObject.prenomUtilisateurProperty, myDataObject.roleUtilisateurProperty, myDataObject.loginUtilisateurProperty, myDataObject.passwordUtilisateurProperty);
+            UtilisateurViewModel nouveau = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, myDataObject.nomUtilisateurProperty, myDataObject.prenomUtilisateurProperty, myDataObject.roleUtilisateurProperty, myDataObject.passwordUtilisateurProperty, myDataObject.loginUtilisateurProperty);
             lu.Add(nouveau);
             UtilisateurORM.insertUtilisateur(nouveau);
             listeUtilisateurs.Items.Refresh();

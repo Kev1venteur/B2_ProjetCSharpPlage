@@ -17,8 +17,8 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="supprimerButton" Content="Supprimer" Click="supprimerButton_Click" BorderThickness="2,2,2,2" Margin="695,151,0,156"/>
-        <TextBox HorizontalAlignment="Left" Height="33" Margin="338,328,0,0" TextWrapping="Wrap" Text="Nom" x:Name="Nom" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.356,0.536"/>
-        <Button HorizontalAlignment="Left" Margin="417,328,0,0" VerticalAlignment="Top" Width="92" Height="33" Click="ajouterEquipe_Click">
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="315,325,0,0" TextWrapping="Wrap" Text="Nom" x:Name="Nom" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.356,0.536"/>
+        <Button HorizontalAlignment="Left" Margin="394,325,0,0" VerticalAlignment="Top" Width="92" Height="33" Click="ajouterEquipe_Click">
             <Label Content="Ajouter" Height="36"/>
         </Button>
         <Button x:Name="supprimerButton_Copy" Content="Accueil" Click="redirectButton_Accueil" BorderThickness="2,2,2,2" Margin="695,10,0,299"/>
