@@ -1,11 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Collections.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using ProjetB2CSharpPlage.DAL;
 using ProjetB2CSharpPlage.DAO;
 using System.Security.Cryptography;
 
@@ -102,6 +97,7 @@ namespace ProjetB2CSharpPlage.DAL
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
+        /***********Fonction de Hashage***************************/
         public static string hash(string text)
         {
             MD5 md5 = new MD5CryptoServiceProvider();

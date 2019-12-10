@@ -1,11 +1,6 @@
 ﻿using ProjetB2CSharpPlage.Ctrl;
 using ProjetB2CSharpPlage.DAO;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetB2CSharpPlage.ORM
 {
@@ -28,6 +23,20 @@ namespace ProjetB2CSharpPlage.ORM
                 l.Add(p);
             }
             return l;
+        }
+        public static void updateEquipe(EquipeViewModel p)
+        {
+            EquipeDAO.updateEquipe(new EquipeDAO(p.idEquipeProperty, p.nomEquipeProperty, p.nombreMembresEquipeProperty));
+        }
+
+        public static void supprimerEquipe(int id)
+        {
+            EquipeDAO.supprimerEquipe(id);
+        }
+
+        public static void insertEquipe(EquipeViewModel p)
+        {
+            EquipeDAO.insertEquipe(new EquipeDAO(p.idEquipeProperty, p.nomEquipeProperty, p.nombreMembresEquipeProperty));
         }
     }
 }

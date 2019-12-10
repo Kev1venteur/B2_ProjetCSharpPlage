@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using ProjetB2CSharpPlage.ORM;
 using ProjetB2CSharpPlage.Ctrl;
 using ProjetB2CSharpPlage.DAL;
-using ProjetB2CSharpPlage.DAO;
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -39,7 +38,7 @@ namespace ProjetB2CSharpPlage.Vue
             myDataObject.prenomUtilisateurProperty = Prenom.Text;
             UtilisateurViewModel nouveau = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, myDataObject.nomUtilisateurProperty, myDataObject.prenomUtilisateurProperty, myDataObject.roleUtilisateurProperty, myDataObject.loginUtilisateurProperty, myDataObject.passwordUtilisateurProperty);
             lu.Add(nouveau);
-            UtilisateurDAO.insertUtilisateur(nouveau);
+            UtilisateurORM.insertUtilisateur(nouveau);
             listeUtilisateurs.Items.Refresh();
         }
         private void supprimerButton_Click(object sender, EventArgs e)
@@ -47,7 +46,7 @@ namespace ProjetB2CSharpPlage.Vue
             UtilisateurViewModel toRemove = (UtilisateurViewModel)listeUtilisateurs.SelectedItem;
             lu.Remove(toRemove);
             listeUtilisateurs.Items.Refresh();
-            UtilisateurDAO.supprimerUtilisateur(selectedUtilisateurId);
+            UtilisateurORM.supprimerUtilisateur(selectedUtilisateurId);
         }
         private void listeUtilisateurs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

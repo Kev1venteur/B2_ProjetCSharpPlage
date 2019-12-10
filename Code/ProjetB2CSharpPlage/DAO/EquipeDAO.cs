@@ -1,11 +1,5 @@
-﻿using ProjetB2CSharpPlage.Ctrl;
-using ProjetB2CSharpPlage.DAL;
-using System;
-using System.Collections.Generic;
+﻿using ProjetB2CSharpPlage.DAL;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetB2CSharpPlage.DAO
 {
@@ -32,9 +26,9 @@ namespace ProjetB2CSharpPlage.DAO
             return p;
         }
 
-        public static void updateEquipe(EquipeViewModel u)
+        public static void updateEquipe(EquipeDAO eq)
         {
-            EquipeDAL.updateEquipe(new EquipeDAO(u.idEquipeProperty, u.nomEquipeProperty, u.nombreMembresEquipeProperty));
+            EquipeDAL.updateEquipe(eq);
         }
 
         public static void supprimerEquipe(int idEquipe)
@@ -42,9 +36,9 @@ namespace ProjetB2CSharpPlage.DAO
             EquipeDAL.supprimerEquipe(idEquipe);
         }
 
-        public static void insertEquipe(EquipeViewModel u)
+        public static void insertEquipe(EquipeDAO eq)
         {
-            EquipeDAL.insertEquipe(new EquipeDAO(u.idEquipeProperty, u.nomEquipeProperty, u.nombreMembresEquipeProperty));
+            EquipeDAL.insertEquipe(eq);
         }
     }
 }

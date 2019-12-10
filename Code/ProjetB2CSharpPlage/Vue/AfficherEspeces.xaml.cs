@@ -1,22 +1,11 @@
 ﻿using ProjetB2CSharpPlage.Ctrl;
 using ProjetB2CSharpPlage.DAL;
-using ProjetB2CSharpPlage.DAO;
 using ProjetB2CSharpPlage.ORM;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ProjetB2CSharpPlage.Vue
 {
@@ -41,7 +30,7 @@ namespace ProjetB2CSharpPlage.Vue
             myDataObject.nomEspeceProperty = Nom.Text;
             EspeceViewModel nouveau = new EspeceViewModel(EspeceDAL.getMaxIdEspece() + 1, myDataObject.nomEspeceProperty);
             lu.Add(nouveau);
-            EspeceDAO.insertEspece(nouveau);
+            EspeceORM.insertEspece(nouveau);
             listeEspeces.Items.Refresh();
         }
         private void supprimerButton_Click(object sender, EventArgs e)
@@ -49,7 +38,7 @@ namespace ProjetB2CSharpPlage.Vue
             EspeceViewModel toRemove = (EspeceViewModel)listeEspeces.SelectedItem;
             lu.Remove(toRemove);
             listeEspeces.Items.Refresh();
-            EspeceDAO.supprimerEspece(selectedEspeceId);
+            EspeceORM.supprimerEspece(selectedEspeceId);
         }
         private void listeEspeces_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

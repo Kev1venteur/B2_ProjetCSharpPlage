@@ -1,11 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetB2CSharpPlage.DAO;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetB2CSharpPlage.DAL
 {
@@ -59,7 +54,7 @@ namespace ProjetB2CSharpPlage.DAL
             cmd.ExecuteNonQuery();
         }
         public static int getMaxIdCommune()
-        {
+        {   /*IFNULL permet de retourner une valeur par défaut si la ligne n'éxiste pas dans la base*/
             string query = "SELECT IFNULL(MAX(idCommune),0) FROM commune;";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -74,7 +69,7 @@ namespace ProjetB2CSharpPlage.DAL
         public static CommuneDAO getCommune(int idCommune)
         {
             string query = "SELECT * FROM commune WHERE idCommune=" + idCommune + ";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+            MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();

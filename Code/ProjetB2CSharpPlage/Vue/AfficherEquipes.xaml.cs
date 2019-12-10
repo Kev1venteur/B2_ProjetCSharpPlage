@@ -1,22 +1,11 @@
 ﻿using ProjetB2CSharpPlage.Ctrl;
 using ProjetB2CSharpPlage.DAL;
-using ProjetB2CSharpPlage.DAO;
 using ProjetB2CSharpPlage.ORM;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ProjetB2CSharpPlage.Vue
 {
@@ -42,7 +31,7 @@ namespace ProjetB2CSharpPlage.Vue
             myDataObject.nombreMembresEquipeProperty = 0;
             EquipeViewModel nouveau = new EquipeViewModel(EquipeDAL.getMaxIdEquipe() + 1, myDataObject.nomEquipeProperty, myDataObject.nombreMembresEquipeProperty);
             lu.Add(nouveau);
-            EquipeDAO.insertEquipe(nouveau);
+            EquipeORM.insertEquipe(nouveau);
             listeEquipes.Items.Refresh();
         }
         private void supprimerButton_Click(object sender, EventArgs e)
@@ -50,7 +39,7 @@ namespace ProjetB2CSharpPlage.Vue
             EquipeViewModel toRemove = (EquipeViewModel)listeEquipes.SelectedItem;
             lu.Remove(toRemove);
             listeEquipes.Items.Refresh();
-            EquipeDAO.supprimerEquipe(selectedEquipeId);
+            EquipeORM.supprimerEquipe(selectedEquipeId);
         }
         private void listeEquipes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

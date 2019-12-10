@@ -1,13 +1,8 @@
-﻿using ProjetB2CSharpEtude.DAO;
-using ProjetB2CSharpPlage.Ctrl;
+﻿using ProjetB2CSharpPlage.ORM;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProjetB2CSharpEtude.Ctrl
+namespace ProjetB2CSharpPlage.Ctrl
 {
     public class EtudeViewModel : INotifyPropertyChanged
     {
@@ -90,7 +85,7 @@ namespace ProjetB2CSharpEtude.Ctrl
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(info));
-                EtudeDAO.updateEtude(this);
+                EtudeORM.updateEtude(this);
             }
         }
     }

@@ -1,22 +1,11 @@
 ﻿using ProjetB2CSharpPlage.Ctrl;
 using ProjetB2CSharpPlage.DAL;
-using ProjetB2CSharpPlage.DAO;
 using ProjetB2CSharpPlage.ORM;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ProjetB2CSharpPlage.Vue
 {
@@ -52,7 +41,7 @@ namespace ProjetB2CSharpPlage.Vue
             myDataObject.surfacePlageProperty = float.TryParse(valueToParse, out result2) ? result2 : defaultValue2;
             PlageViewModel nouveau = new PlageViewModel(PlageDAL.getMaxIdPlage() + 1, myDataObject.nomPlageProperty, myDataObject.communePlage, myDataObject.nbEspecesDifferentesPlageProperty, myDataObject.surfacePlageProperty);
             lu.Add(nouveau);
-            PlageDAO.insertPlage(nouveau);
+            PlageORM.insertPlage(nouveau);
             listePlages.Items.Refresh();
         }
         private void supprimerButton_Click(object sender, EventArgs e)
@@ -60,7 +49,7 @@ namespace ProjetB2CSharpPlage.Vue
             PlageViewModel toRemove = (PlageViewModel)listePlages.SelectedItem;
             lu.Remove(toRemove);
             listePlages.Items.Refresh();
-            PlageDAO.supprimerPlage(selectedPlageId);
+            PlageORM.supprimerPlage(selectedPlageId);
         }
         private void listePlages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

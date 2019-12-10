@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProjetB2CSharpPlage.DAO;
 using ProjetB2CSharpPlage.DAL;
-using ProjetB2CSharpPlage.Ctrl;
 
 namespace ProjetB2CSharpPlage.DAO
 {
@@ -45,9 +39,9 @@ namespace ProjetB2CSharpPlage.DAO
             return p;
         }
 
-        public static void updateUtilisateur(UtilisateurViewModel u)
+        public static void updateUtilisateur(UtilisateurDAO u)
         {
-            UtilisateurDAL.updateUtilisateur(new UtilisateurDAO(u.idUtilisateurProperty, u.nomUtilisateurProperty, u.prenomUtilisateurProperty, u.roleUtilisateurProperty, u.passwordUtilisateurProperty, u.loginUtilisateurProperty));
+            UtilisateurDAL.updateUtilisateur(u);
         }
 
         public static void supprimerUtilisateur(int id)
@@ -55,9 +49,9 @@ namespace ProjetB2CSharpPlage.DAO
             UtilisateurDAL.supprimerUtilisateur(id);
         }
 
-        public static void insertUtilisateur(UtilisateurViewModel u)
+        public static void insertUtilisateur(UtilisateurDAO u)
         {
-            UtilisateurDAL.insertUtilisateur(new UtilisateurDAO(u.idUtilisateurProperty, u.nomUtilisateurProperty, u.prenomUtilisateurProperty, u.roleUtilisateurProperty, u.passwordUtilisateurProperty, u.loginUtilisateurProperty));
+            UtilisateurDAL.insertUtilisateur(u);
         }
     }
 }

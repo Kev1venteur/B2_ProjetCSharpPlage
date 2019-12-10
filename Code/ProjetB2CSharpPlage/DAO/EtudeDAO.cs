@@ -1,13 +1,8 @@
-﻿using ProjetB2CSharpEtude.Ctrl;
-using ProjetB2CSharpEtude.DAL;
+﻿using ProjetB2CSharpPlage.DAL;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProjetB2CSharpEtude.DAO
+namespace ProjetB2CSharpPlage.DAO
 {
     public class EtudeDAO
     {
@@ -38,9 +33,9 @@ namespace ProjetB2CSharpEtude.DAO
             return p;
         }
 
-        public static void updateEtude(EtudeViewModel p)
+        public static void updateEtude(EtudeDAO et)
         {
-            EtudeDAL.updateEtude(new EtudeDAO(p.idEtudeProperty, p.dateEtudeProperty, p.titreEtudeProperty, p.nbTotalEspeceRencontreeEtudeProperty, p.equipeEtude.idEquipeProperty));
+            EtudeDAL.updateEtude(et);
         }
 
         public static void supprimerEtude(int id)
@@ -48,9 +43,9 @@ namespace ProjetB2CSharpEtude.DAO
             EtudeDAL.supprimerEtude(id);
         }
 
-        public static void insertEtude(EtudeViewModel p)
+        public static void insertEtude(EtudeDAO et)
         {
-            EtudeDAL.insertEtude(new EtudeDAO(p.idEtudeProperty, p.dateEtudeProperty, p.titreEtudeProperty, p.nbTotalEspeceRencontreeEtudeProperty, p.equipeEtude.idEquipeProperty));
+            EtudeDAL.insertEtude(et);
         }
     }
 }

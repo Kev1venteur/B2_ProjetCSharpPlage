@@ -1,13 +1,8 @@
-﻿using ProjetB2CSharpPlage.Ctrl;
-using ProjetB2CSharpPlage.DAL;
+﻿using ProjetB2CSharpPlage.DAL;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace ProjetB2CSharpPlage.DAO
 {
@@ -49,9 +44,9 @@ namespace ProjetB2CSharpPlage.DAO
             return p;
         }
 
-        public static void updateZonePrelevement(ZonePrelevementViewModel u)
+        public static void updateZonePrelevement(ZonePrelevementDAO zp)
         {
-            ZonePrelevementDAL.updateZonePrelevement(new ZonePrelevementDAO(u.idZonePrelevementProperty, u.nomZonePrelevementProperty, u.lat1Property, u.lat2Property, u.lat3Property, u.lat4Property, u.long1Property, u.long2Property, u.long3Property, u.long4Property));
+            ZonePrelevementDAL.updateZonePrelevement(zp);
         }
 
         public static void supprimerZonePrelevement(int id)
@@ -59,9 +54,9 @@ namespace ProjetB2CSharpPlage.DAO
             ZonePrelevementDAL.supprimerZonePrelevement(id);
         }
 
-        public static void insertZonePrelevement(ZonePrelevementViewModel u)
+        public static void insertZonePrelevement(ZonePrelevementDAO zp)
         {
-            ZonePrelevementDAL.insertZonePrelevement(new ZonePrelevementDAO(u.idZonePrelevementProperty, u.nomZonePrelevementProperty, u.lat1Property, u.lat2Property, u.lat3Property, u.lat4Property, u.long1Property, u.long2Property, u.long3Property, u.long4Property));
+            ZonePrelevementDAL.insertZonePrelevement(zp);
         }
     }
 }

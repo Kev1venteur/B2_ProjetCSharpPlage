@@ -1,14 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
-using ProjetB2CSharpEtude.DAO;
-using ProjetB2CSharpPlage.DAL;
+using ProjetB2CSharpPlage.DAO;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProjetB2CSharpEtude.DAL
+namespace ProjetB2CSharpPlage.DAL
 {
     public class EtudeDAL
     {

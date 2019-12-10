@@ -1,11 +1,5 @@
-﻿using ProjetB2CSharpPlage.Ctrl;
-using ProjetB2CSharpPlage.DAL;
-using System;
-using System.Collections.Generic;
+﻿using ProjetB2CSharpPlage.DAL;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetB2CSharpPlage.DAO
 {
@@ -30,9 +24,9 @@ namespace ProjetB2CSharpPlage.DAO
             return p;
         }
 
-        public static void updateEspece(EspeceViewModel u)
+        public static void updateEspece(EspeceDAO esp)
         {
-            EspeceDAL.updateEspece(new EspeceDAO(u.idEspeceProperty, u.nomEspeceProperty));
+            EspeceDAL.updateEspece(esp);
         }
 
         public static void supprimerEspece(int idEspece)
@@ -40,9 +34,9 @@ namespace ProjetB2CSharpPlage.DAO
             EspeceDAL.supprimerEspece(idEspece);
         }
 
-        public static void insertEspece(EspeceViewModel u)
+        public static void insertEspece(EspeceDAO esp)
         {
-            EspeceDAL.insertEspece(new EspeceDAO(u.idEspeceProperty, u.nomEspeceProperty));
+            EspeceDAL.insertEspece(esp);
         }
     }
 }

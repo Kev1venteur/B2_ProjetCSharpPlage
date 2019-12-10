@@ -1,11 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Collections.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProjetB2CSharpPlage.DAL;
 using ProjetB2CSharpPlage.DAO;
 using System.Threading;
 using System.Globalization;

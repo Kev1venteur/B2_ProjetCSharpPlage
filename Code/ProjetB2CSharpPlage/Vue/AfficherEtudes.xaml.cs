@@ -1,25 +1,13 @@
-﻿using ProjetB2CSharpEtude.Ctrl;
-using ProjetB2CSharpEtude.DAL;
-using ProjetB2CSharpEtude.DAO;
-using ProjetB2CSharpEtude.ORM;
+﻿using ProjetB2CSharpPlage.Ctrl;
+using ProjetB2CSharpPlage.DAL;
 using ProjetB2CSharpPlage.ORM;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ProjetB2CSharpPlage.Vue
 {
@@ -63,7 +51,7 @@ namespace ProjetB2CSharpPlage.Vue
             //////////////////////////////////////////////////insert
             EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject.dateEtudeProperty, myDataObject.titreEtudeProperty, myDataObject.nbTotalEspeceRencontreeEtudeProperty, myDataObject.equipeEtudeProperty);
             lu.Add(nouveau);
-            EtudeDAO.insertEtude(nouveau);
+            EtudeORM.insertEtude(nouveau);
             listeEtudes.Items.Refresh();
         }
         private void supprimerButton_Click(object sender, EventArgs e)
@@ -71,7 +59,7 @@ namespace ProjetB2CSharpPlage.Vue
             EtudeViewModel toRemove = (EtudeViewModel)listeEtudes.SelectedItem;
             lu.Remove(toRemove);
             listeEtudes.Items.Refresh();
-            EtudeDAO.supprimerEtude(selectedEtudeId);
+            EtudeORM.supprimerEtude(selectedEtudeId);
         }
         private void listeEtudes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

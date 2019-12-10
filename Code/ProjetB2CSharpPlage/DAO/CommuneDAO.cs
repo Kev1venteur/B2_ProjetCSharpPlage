@@ -1,11 +1,5 @@
-﻿using ProjetB2CSharpPlage.Ctrl;
-using ProjetB2CSharpPlage.DAL;
-using System;
-using System.Collections.Generic;
+﻿using ProjetB2CSharpPlage.DAL;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetB2CSharpPlage.DAO
 {
@@ -34,9 +28,9 @@ namespace ProjetB2CSharpPlage.DAO
             return p;
         }
 
-        public static void updateCommune(CommuneViewModel p)
+        public static void updateCommune(CommuneDAO c)
         {
-            CommuneDAL.updateCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty, p.departementCommune.idDepartementProperty));
+            CommuneDAL.updateCommune(c);
         }
 
         public static void supprimerCommune(int id)
@@ -44,9 +38,9 @@ namespace ProjetB2CSharpPlage.DAO
             CommuneDAL.supprimerCommune(id);
         }
 
-        public static void insertCommune(CommuneViewModel p)
+        public static void insertCommune(CommuneDAO c)
         {
-            CommuneDAL.insertCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty, p.departementCommune.idDepartementProperty));
+            CommuneDAL.insertCommune(c);
         }
     }
 }

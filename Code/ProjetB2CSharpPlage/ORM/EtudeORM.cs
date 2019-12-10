@@ -1,15 +1,8 @@
-﻿using ProjetB2CSharpEtude.Ctrl;
-using ProjetB2CSharpEtude.DAO;
-using ProjetB2CSharpPlage.Ctrl;
-using ProjetB2CSharpPlage.ORM;
-using System;
-using System.Collections.Generic;
+﻿using ProjetB2CSharpPlage.Ctrl;
+using ProjetB2CSharpPlage.DAO;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProjetB2CSharpEtude.ORM
+namespace ProjetB2CSharpPlage.ORM
 {
     public class EtudeORM
     {
@@ -36,6 +29,20 @@ namespace ProjetB2CSharpEtude.ORM
                 l.Add(p);
             }
             return l;
+        }
+        public static void updateEtude(EtudeViewModel e)
+        {
+            EtudeDAO.updateEtude(new EtudeDAO(e.idEtudeProperty, e.dateEtudeProperty, e.titreEtudeProperty, e.nbTotalEspeceRencontreeEtudeProperty, e.equipeEtudeProperty.idEquipeProperty));
+        }
+
+        public static void supprimerEtude(int id)
+        {
+            EtudeDAO.supprimerEtude(id);
+        }
+
+        public static void insertEtude(EtudeViewModel e)
+        {
+            EtudeDAO.insertEtude(new EtudeDAO(e.idEtudeProperty, e.dateEtudeProperty, e.titreEtudeProperty, e.nbTotalEspeceRencontreeEtudeProperty, e.equipeEtudeProperty.idEquipeProperty));
         }
     }
 }

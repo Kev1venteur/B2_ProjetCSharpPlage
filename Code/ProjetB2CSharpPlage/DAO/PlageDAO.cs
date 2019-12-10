@@ -1,11 +1,5 @@
-﻿using ProjetB2CSharpPlage.Ctrl;
-using ProjetB2CSharpPlage.DAL;
-using System;
-using System.Collections.Generic;
+﻿using ProjetB2CSharpPlage.DAL;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetB2CSharpPlage.DAO
 {
@@ -38,9 +32,9 @@ namespace ProjetB2CSharpPlage.DAO
             return p;
         }
 
-        public static void updatePlage(PlageViewModel p)
+        public static void updatePlage(PlageDAO p)
         {
-            PlageDAL.updatePlage(new PlageDAO(p.idPlageProperty, p.nomPlageProperty, p.communePlage.idCommuneProperty, p.nbEspecesDifferentesPlageProperty, p.surfacePlageProperty));
+            PlageDAL.updatePlage(p);
         }
 
         public static void supprimerPlage(int id)
@@ -48,9 +42,9 @@ namespace ProjetB2CSharpPlage.DAO
             PlageDAL.supprimerPlage(id);
         }
 
-        public static void insertPlage(PlageViewModel p)
+        public static void insertPlage(PlageDAO p)
         {
-            PlageDAL.insertPlage(new PlageDAO(p.idPlageProperty, p.nomPlageProperty, p.communePlage.idCommuneProperty, p.nbEspecesDifferentesPlageProperty, p.surfacePlageProperty));
+            PlageDAL.insertPlage(p);
         }
     }
 }

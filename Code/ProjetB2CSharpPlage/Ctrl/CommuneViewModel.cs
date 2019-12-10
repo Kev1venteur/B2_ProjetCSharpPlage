@@ -1,10 +1,6 @@
-﻿using ProjetB2CSharpPlage.DAO;
+﻿using ProjetB2CSharpPlage.ORM;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetB2CSharpPlage.Ctrl
 {
@@ -55,7 +51,7 @@ namespace ProjetB2CSharpPlage.Ctrl
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(info));
-                CommuneDAO.updateCommune(this);
+                CommuneORM.updateCommune(this);
             }
         }
     }

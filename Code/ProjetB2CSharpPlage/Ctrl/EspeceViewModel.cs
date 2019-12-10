@@ -1,10 +1,5 @@
-﻿using ProjetB2CSharpPlage.DAO;
-using System;
-using System.Collections.Generic;
+﻿using ProjetB2CSharpPlage.ORM;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetB2CSharpPlage.Ctrl
 {
@@ -41,7 +36,7 @@ namespace ProjetB2CSharpPlage.Ctrl
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(info));
-                EspeceDAO.updateEspece(this);
+                EspeceORM.updateEspece(this);
             }
         }
     }

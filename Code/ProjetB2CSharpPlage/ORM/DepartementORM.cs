@@ -1,11 +1,6 @@
 ﻿using ProjetB2CSharpPlage.Ctrl;
 using ProjetB2CSharpPlage.DAO;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetB2CSharpPlage.ORM
 {
@@ -28,6 +23,20 @@ namespace ProjetB2CSharpPlage.ORM
                 l.Add(p);
             }
             return l;
+        }
+        public static void updateDepartement(DepartementViewModel p)
+        {
+            DepartementDAO.updateDepartement(new DepartementDAO(p.idDepartementProperty, p.nomDepartementProperty, p.numeroDepartementProperty));
+        }
+
+        public static void supprimerDepartement(int id)
+        {
+            DepartementDAO.supprimerDepartement(id);
+        }
+
+        public static void insertDepartement(DepartementViewModel p)
+        {
+            DepartementDAO.insertDepartement(new DepartementDAO(p.idDepartementProperty, p.nomDepartementProperty, p.numeroDepartementProperty));
         }
     }
 }

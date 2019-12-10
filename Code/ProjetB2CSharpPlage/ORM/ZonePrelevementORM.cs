@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using ProjetB2CSharpPlage.Ctrl;
 using ProjetB2CSharpPlage.DAO;
 
@@ -28,6 +23,20 @@ namespace ProjetB2CSharpPlage.ORM
                 l.Add(p);
             }
             return l;
+        }
+        public static void updateZonePrelevement(ZonePrelevementViewModel zp)
+        {
+            ZonePrelevementDAO.updateZonePrelevement(new ZonePrelevementDAO(zp.idZonePrelevementProperty, zp.nomZonePrelevementProperty, zp.lat1Property, zp.lat2Property, zp.lat3Property, zp.lat4Property, zp.long1Property, zp.long2Property, zp.long3Property,zp.long4Property));
+        }
+
+        public static void supprimerZonePrelevement(int id)
+        {
+            ZonePrelevementDAO.supprimerZonePrelevement(id);
+        }
+
+        public static void insertZonePrelevement(ZonePrelevementViewModel zp)
+        {
+            ZonePrelevementDAO.insertZonePrelevement(new ZonePrelevementDAO(zp.idZonePrelevementProperty, zp.nomZonePrelevementProperty, zp.lat1Property, zp.lat2Property, zp.lat3Property, zp.lat4Property, zp.long1Property, zp.long2Property, zp.long3Property, zp.long4Property));
         }
     }
 }

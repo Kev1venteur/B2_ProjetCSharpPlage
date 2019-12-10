@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using ProjetB2CSharpPlage.DAO;
+using ProjetB2CSharpPlage.ORM;
 
 namespace ProjetB2CSharpPlage.Ctrl
 {
@@ -133,7 +129,7 @@ namespace ProjetB2CSharpPlage.Ctrl
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(info));
-                ZonePrelevementDAO.updateZonePrelevement(this);
+                ZonePrelevementORM.updateZonePrelevement(this);
             }
         }
     }

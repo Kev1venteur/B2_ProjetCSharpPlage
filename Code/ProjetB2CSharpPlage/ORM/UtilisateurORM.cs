@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using ProjetB2CSharpPlage.Ctrl;
 using ProjetB2CSharpPlage.DAO;
 
@@ -35,6 +30,20 @@ namespace ProjetB2CSharpPlage.ORM
                 l.Add(p);
             }
             return l;
+        }
+        public static void updateUtilisateur(UtilisateurViewModel p)
+        {
+            UtilisateurDAO.updateUtilisateur(new UtilisateurDAO(p.idUtilisateurProperty, p.nomUtilisateurProperty, p.prenomUtilisateurProperty, p.roleUtilisateurProperty, p.passwordUtilisateurProperty, p.loginUtilisateurProperty));
+        }
+
+        public static void supprimerUtilisateur(int id)
+        {
+            UtilisateurDAO.supprimerUtilisateur(id);
+        }
+
+        public static void insertUtilisateur(UtilisateurViewModel p)
+        {
+            UtilisateurDAO.insertUtilisateur(new UtilisateurDAO(p.idUtilisateurProperty, p.nomUtilisateurProperty, p.prenomUtilisateurProperty, p.roleUtilisateurProperty, p.passwordUtilisateurProperty, p.loginUtilisateurProperty));
         }
     }
 }
