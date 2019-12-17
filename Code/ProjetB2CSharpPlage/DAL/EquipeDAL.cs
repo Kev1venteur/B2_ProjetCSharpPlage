@@ -44,10 +44,13 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void updateEquipe(EquipeDAO u)
         {
-            string query = "UPDATE equipe set nom=\"" + u.nomEquipeDAO + "\", nombreMembres=\"" + u.nombreMembresEquipeDAO + "\" where idEquipe=" + u.idEquipeDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (u.idEquipeDAO != 1)
+            {
+                string query = "UPDATE equipe set nom=\"" + u.nomEquipeDAO + "\", nombreMembres=\"" + u.nombreMembresEquipeDAO + "\" where idEquipe=" + u.idEquipeDAO + ";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
         public static void insertEquipe(EquipeDAO u)
         {
@@ -71,10 +74,13 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void supprimerEquipe(int id)
         {
-            string query = "DELETE FROM equipe WHERE idEquipe = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (id != 1)
+            {
+                string query = "DELETE FROM equipe WHERE idEquipe = \"" + id + "\";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

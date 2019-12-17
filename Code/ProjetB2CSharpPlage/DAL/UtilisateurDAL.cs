@@ -57,11 +57,14 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void updateUtilisateur(UtilisateurDAO u)
         {
-            u.passwordUtilisateurDAO = hash(u.passwordUtilisateurDAO);
-            string query = "UPDATE utilisateur set nom=\"" + u.nomUtilisateurDAO + "\", prenom=\"" + u.prenomUtilisateurDAO + "\", isAdmin=\"" + u.roleUtilisateurDAO + "\", password=\"" + u.passwordUtilisateurDAO + "\", login=\"" + u.loginUtilisateurDAO + "\" where idUtilisateur=" + u.idUtilisateurDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (u.idUtilisateurDAO != 1)
+            {
+                u.passwordUtilisateurDAO = hash(u.passwordUtilisateurDAO);
+                string query = "UPDATE utilisateur set nom=\"" + u.nomUtilisateurDAO + "\", prenom=\"" + u.prenomUtilisateurDAO + "\", isAdmin=\"" + u.roleUtilisateurDAO + "\", password=\"" + u.passwordUtilisateurDAO + "\", login=\"" + u.loginUtilisateurDAO + "\" where idUtilisateur=" + u.idUtilisateurDAO + ";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
         public static void insertUtilisateur(UtilisateurDAO u)
         {
@@ -86,10 +89,13 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void supprimerUtilisateur(int id)
         {
-            string query = "DELETE FROM utilisateur WHERE idUtilisateur = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (id != 1)
+            {
+                string query = "DELETE FROM utilisateur WHERE idUtilisateur = \"" + id + "\";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
         /***********Fonction de Hashage***************************/
         public static string hash(string text)

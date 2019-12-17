@@ -27,10 +27,13 @@ namespace ProjetB2CSharpPlage.DAL
 
         public static void updateEtude(EtudeDAO p)
         {
-            string query = "UPDATE etude set titre=\"" + p.titreEtudeDAO + "\", idEquipe=\"" + p.idEquipeEtudeDAO + "\", nbTotalEspeceRencontree=\"" + p.nbTotalEspeceRencontreeEtudeDAO + "\", date=\"" + p.dateEtudeDAO + "\" where idEtude=" + p.idEtudeDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (p.idEtudeDAO != 1)
+            {
+                string query = "UPDATE etude set titre=\"" + p.titreEtudeDAO + "\", idEquipe=\"" + p.idEquipeEtudeDAO + "\", nbTotalEspeceRencontree=\"" + p.nbTotalEspeceRencontreeEtudeDAO + "\", date=\"" + p.dateEtudeDAO + "\" where idEtude=" + p.idEtudeDAO + ";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
         public static void insertEtude(EtudeDAO p)
         {
@@ -42,10 +45,13 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void supprimerEtude(int id)
         {
-            string query = "DELETE FROM etude WHERE idEtude = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (id != 1)
+            {
+                string query = "DELETE FROM etude WHERE idEtude = \"" + id + "\";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
         public static int getMaxIdEtude()
         {

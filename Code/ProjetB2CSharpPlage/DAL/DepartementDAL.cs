@@ -44,10 +44,13 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void updateDepartement(DepartementDAO u)
         {
-            string query = "UPDATE departement set nom =\"" + u.nomDepartementDAO + "\", numero=\"" + u.numeroDepartementDAO + "\" where idDepartement=" + u.idDepartementDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (u.idDepartementDAO != 1)
+            {
+                string query = "UPDATE departement set nom =\"" + u.nomDepartementDAO + "\", numero=\"" + u.numeroDepartementDAO + "\" where idDepartement=" + u.idDepartementDAO + ";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
         public static void insertDepartement(DepartementDAO u)
         {
@@ -71,10 +74,13 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void supprimerDepartement(int id)
         {
-            string query = "DELETE FROM departement WHERE idDepartement = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (id != 1)
+            {
+                string query = "DELETE FROM departement WHERE idDepartement = \"" + id + "\";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

@@ -44,10 +44,13 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void updateEspece(EspeceDAO u)
         {
-            string query = "UPDATE espece set nom=\"" + u.nomEspeceDAO + "\" where idEspece=" + u.idEspeceDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (u.idEspeceDAO != 1)
+            {
+                string query = "UPDATE espece set nom=\"" + u.nomEspeceDAO + "\" where idEspece=" + u.idEspeceDAO + ";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
         public static void insertEspece(EspeceDAO u)
         {
@@ -71,10 +74,13 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void supprimerEspece(int id)
         {
-            string query = "DELETE FROM espece WHERE idEspece = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (id != 1)
+            {
+                string query = "DELETE FROM espece WHERE idEspece = \"" + id + "\";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

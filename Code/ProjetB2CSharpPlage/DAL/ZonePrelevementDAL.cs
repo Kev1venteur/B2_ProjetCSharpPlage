@@ -50,10 +50,13 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void updateZonePrelevement(ZonePrelevementDAO u)
         {
-            string query = "UPDATE zoneprelevement set nom=\"" + u.nomZonePrelevementDAO + "\", lat1=\"" + u.lat1DAO + "\", lat2=\"" + u.lat2DAO + "\", lat3=\"" + u.lat3DAO + "\", lat4=\"" + u.lat4DAO + "\", long1=\"" + u.long1DAO + "\", long2=\"" + u.long2DAO + "\", long3=\"" + u.long3DAO + "\", long4=\"" + u.long4DAO + "\" where idZonePrelevement=" + u.idZonePrelevementDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (u.idZonePrelevementDAO != 1)
+            {
+                string query = "UPDATE zoneprelevement set nom=\"" + u.nomZonePrelevementDAO + "\", lat1=\"" + u.lat1DAO + "\", lat2=\"" + u.lat2DAO + "\", lat3=\"" + u.lat3DAO + "\", lat4=\"" + u.lat4DAO + "\", long1=\"" + u.long1DAO + "\", long2=\"" + u.long2DAO + "\", long3=\"" + u.long3DAO + "\", long4=\"" + u.long4DAO + "\" where idZonePrelevement=" + u.idZonePrelevementDAO + ";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
         public static void insertZonePrelevement(ZonePrelevementDAO u)
         {
@@ -77,10 +80,13 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void supprimerZonePrelevement(int id)
         {
-            string query = "DELETE FROM zoneprelevement WHERE idZonePrelevement = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (id != 1)
+            {
+                string query = "DELETE FROM zoneprelevement WHERE idZonePrelevement = \"" + id + "\";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

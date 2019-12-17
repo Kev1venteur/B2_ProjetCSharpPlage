@@ -26,10 +26,13 @@ namespace ProjetB2CSharpPlage.DAL
 
         public static void updatePlage(PlageDAO p)
         {
-            string query = "UPDATE plage set nom=\"" + p.nomPlageDAO + "\", idCommune=\"" + p.idCommunePlageDAO + "\", nbEspecesDifferentes=\"" + p.nbEspecesDifferentesPlageDAO + "\", surface=\"" + p.surfacePlageDAO + "\" where idPlage=" + p.idPlageDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (p.idPlageDAO != 1)
+            {
+                string query = "UPDATE plage set nom=\"" + p.nomPlageDAO + "\", idCommune=\"" + p.idCommunePlageDAO + "\", nbEspecesDifferentes=\"" + p.nbEspecesDifferentesPlageDAO + "\", surface=\"" + p.surfacePlageDAO + "\" where idPlage=" + p.idPlageDAO + ";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
         public static void insertPlage(PlageDAO p)
         {
@@ -41,10 +44,13 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void supprimerPlage(int id)
         {
-            string query = "DELETE FROM plage WHERE idPlage = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (id != 1)
+            {
+                string query = "DELETE FROM plage WHERE idPlage = \"" + id + "\";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
         public static int getMaxIdPlage()
         {

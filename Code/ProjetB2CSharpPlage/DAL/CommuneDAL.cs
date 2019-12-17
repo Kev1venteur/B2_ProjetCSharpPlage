@@ -26,10 +26,13 @@ namespace ProjetB2CSharpPlage.DAL
 
         public static void updateCommune(CommuneDAO p)
         {
-            string query = "UPDATE commune set nom=\"" + p.nomCommuneDAO + "\", idDepartement=\"" + p.idDepartementCommuneDAO + "\" where idCommune=" + p.idCommuneDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if(p.idCommuneDAO != 1)
+            {
+                string query = "UPDATE commune set nom=\"" + p.nomCommuneDAO + "\", idDepartement=\"" + p.idDepartementCommuneDAO + "\" where idCommune=" + p.idCommuneDAO + ";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
         public static void insertCommune(CommuneDAO p)
         {
@@ -41,10 +44,13 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void supprimerCommune(int id)
         {
-            string query = "DELETE FROM commune WHERE idCommune = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
+            if (id != 1)
+            {
+                string query = "DELETE FROM commune WHERE idCommune = \"" + id + "\";";
+                MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
+                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                cmd.ExecuteNonQuery();
+            }
         }
         public static int getMaxIdCommune()
         {   /*IFNULL permet de retourner une valeur par défaut si la ligne n'éxiste pas dans la base*/
