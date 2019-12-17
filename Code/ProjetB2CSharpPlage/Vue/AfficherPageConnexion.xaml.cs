@@ -22,9 +22,13 @@ namespace ProjetB2CSharpPlage.Vue
         {
             Window window = Window.GetWindow(this);
             myDataObject = UtilisateurORM.getUtilisateur(login.Text);
-            if (login.Text == myDataObject.loginUtilisateurProperty && UtilisateurDAL.hash(password.Text) == myDataObject.passwordUtilisateurProperty)
+            if (login.Text == myDataObject.loginUtilisateurProperty && UtilisateurDAL.hash(password.Text) == myDataObject.passwordUtilisateurProperty && myDataObject.roleUtilisateurProperty == 1) //Log des admins
             {
-                window.Content = new AfficherInterfaceSelection();
+                window.Content = new AfficherInterfaceAdministrateur();
+            }
+            else if (login.Text == myDataObject.loginUtilisateurProperty && UtilisateurDAL.hash(password.Text) == myDataObject.passwordUtilisateurProperty && myDataObject.roleUtilisateurProperty == 0) //Log des utilisateurs
+            {
+                window.Content = new AfficherInterfaceUtilisateur();
             }
             else
             {

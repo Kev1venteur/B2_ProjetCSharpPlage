@@ -69,7 +69,7 @@ namespace ProjetB2CSharpPlage.Vue
         private void redirectButton_Accueil(object sender, EventArgs e)
         {
             Window window = Window.GetWindow(this);
-            window.Content = new AfficherInterfaceSelection();
+            window.Content = new AfficherInterfaceAdministrateur();
         }
     }
 }

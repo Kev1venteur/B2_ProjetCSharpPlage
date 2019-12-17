@@ -6,11 +6,11 @@ using System.Windows.Controls;
 namespace ProjetB2CSharpPlage.Vue
 {
     /// <summary>
-    /// Logique d'interaction pour AfficherInterfaceSelection.xaml
+    /// Logique d'interaction pour AfficherInterfaceAdministrateur.xaml
     /// </summary>
-    public partial class AfficherInterfaceSelection : Page
+    public partial class AfficherInterfaceAdministrateur : Page
     {
-        public AfficherInterfaceSelection()
+        public AfficherInterfaceAdministrateur()
         {
             InitializeComponent();
         }
