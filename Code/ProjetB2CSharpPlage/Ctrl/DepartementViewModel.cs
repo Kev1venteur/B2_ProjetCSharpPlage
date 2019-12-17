@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace ProjetB2CSharpPlage.Ctrl
 {
-    public class DepartementViewModel
+    public class DepartementViewModel : INotifyPropertyChanged
     {
         private int idDepartement;
         private string nomDepartement;

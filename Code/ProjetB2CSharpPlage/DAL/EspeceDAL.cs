@@ -44,7 +44,7 @@ namespace ProjetB2CSharpPlage.DAL
         }
         public static void updateEspece(EspeceDAO u)
         {
-            string query = "UPDATE espece set nom=\"" + u.nomEspeceDAO + ";";
+            string query = "UPDATE espece set nom=\"" + u.nomEspeceDAO + "\" where idEspece=" + u.idEspeceDAO + ";";
             MySqlCommand cmd = new MySqlCommand(query, ConnexionBaseDAL.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();

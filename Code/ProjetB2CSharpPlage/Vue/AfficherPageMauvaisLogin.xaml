@@ -9,7 +9,7 @@
       Title="AfficherPageMauvaisLogin">
 
     <Grid>
-        <Image Source="C:\Users\Red\source\repos\Git\ProjetB2CSharpPlage\Annexes\Images\badLogin.png" Margin="57,101,483,138"/>
+        <Image Source="badLogin.png" Margin="57,101,483,138"/>
         <Label Content="La Tentative de Connexion a échoué !!" HorizontalAlignment="Left" Margin="411,183,0,0" VerticalAlignment="Top"/>
         <Button Content="Retour" Click="redirectButton_LoginPage" HorizontalAlignment="Left" Margin="529,292,0,0" VerticalAlignment="Top" Width="161" Height="92"/>
     </Grid>
