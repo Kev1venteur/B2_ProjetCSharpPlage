@@ -210,10 +210,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Vue\plage.jpg" />
+    <Resource Include="Vue\badLogin.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Vue\badLogin.png" />
+    <Resource Include="Vue\plage.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
