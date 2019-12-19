@@ -20,16 +20,12 @@
         </DataGrid>
         <Button x:Name="supprimerButton" Content="Supprimer" Click="supprimerButton_Click" BorderThickness="2,2,2,2" Margin="695,151,0,156"/>
         <TextBox HorizontalAlignment="Left" Height="33" Margin="288,328,0,0" TextWrapping="Wrap" Text="Nombre d'Especes" x:Name="nbEspeces" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.356,0.536"/>
-        <ComboBox Name="listeEquipeCombo" 
-                  DisplayMemberPath="nomEquipeProperty" 
-                  ItemsSource="{Binding}" 
-                  SelectedItem="{Binding idEquipeProperty}" 
-                  Margin="367,328,304,50"></ComboBox>
+        <ComboBox Name="listeEquipeCombo" DisplayMemberPath="nomEquipeProperty" ItemsSource="{Binding}" SelectedItem="{Binding idEquipeProperty}" Margin="367,328,304,50"></ComboBox>
         <Button HorizontalAlignment="Left" Margin="477,328,0,0" VerticalAlignment="Top" Width="92" Height="33" Click="ajouterEtude_Click">
             <Label Content="Ajouter" Height="36"/>
         </Button>
         <Button x:Name="supprimerButton_Copy" Content="Accueil" Click="redirectButton_Accueil" BorderThickness="2,2,2,2" Margin="695,10,0,299"/>
-        <TextBox HorizontalAlignment="Left" Height="33" Margin="130,328,0,0" TextWrapping="Wrap" Text="Date" x:Name="Date" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.356,0.536"/>
+        <DatePicker x:Name="Date" SelectedDate="{Binding dateEtudeProperty, StringFormat=dd/MM/yyyy}" SelectedDateFormat="Long" FirstDayOfWeek="Monday" Margin="27,328,574,50" />
         <TextBox HorizontalAlignment="Left" Height="33" Margin="209,328,0,0" TextWrapping="Wrap" Text="Titre" x:Name="Titre" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.356,0.536"/>
     </Grid>
 </Page>
