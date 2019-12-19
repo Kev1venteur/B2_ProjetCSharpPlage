@@ -20,9 +20,12 @@ namespace ProjetB2CSharpPlage.Vue
         EtudeViewModel myDataObject;
         EtudeDAL c = new EtudeDAL();
         ObservableCollection<EtudeViewModel> lu;
+        ObservableCollection<EquipeViewModel> lp;
         public AfficherEtudes()
         {
             InitializeComponent();
+            lp = EquipeORM.listeEquipes();
+            listeEquipeCombo.ItemsSource = lp;
             lu = EtudeORM.listeEtudes();
             listeEtudes.ItemsSource = lu;
             myDataObject = new EtudeViewModel();
@@ -34,14 +37,18 @@ namespace ProjetB2CSharpPlage.Vue
         private void ajouterEtude_Click(object sender, EventArgs e)
         {
             myDataObject.titreEtudeProperty = Titre.Text;
-            //////////////////////////////////////////////////id équipe
-            string EquipeIdToParse = idEquipe.Text;
-            int result;
-            int defaultValue = 1; //si la string est abhérente, la equipe par défaut est 1 -> mauvaisNumDépartement
-            myDataObject.equipeEtude = EquipeORM.getEquipe(int.TryParse(EquipeIdToParse, out result) ? result : defaultValue);
+            if((EquipeViewModel)listeEquipeCombo.SelectedItem != null)
+            {
+                myDataObject.equipeEtude = (EquipeViewModel)listeEquipeCombo.SelectedItem;
+            }
+            else
+            {
+                myDataObject.equipeEtude = new EquipeViewModel(1, "MauvaisNumeroEquipe", 0);
+            }
             //////////////////////////////////////////////////nombre especes
             string valueToParse = nbEspeces.Text;
-            defaultValue = 0;
+            int result;
+            int defaultValue = 0;
             myDataObject.nbTotalEspeceRencontreeEtudeProperty = int.TryParse(valueToParse, out result) ? result : defaultValue;
             //////////////////////////////////////////////////date
             string valueToParse2 = Date.Text;
@@ -52,7 +59,10 @@ namespace ProjetB2CSharpPlage.Vue
             EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject.dateEtudeProperty, myDataObject.titreEtudeProperty, myDataObject.nbTotalEspeceRencontreeEtudeProperty, myDataObject.equipeEtudeProperty);
             lu.Add(nouveau);
             EtudeORM.insertEtude(nouveau);
+            listeEquipeCombo.ItemsSource = lp;
             listeEtudes.Items.Refresh();
+            listeEquipeCombo.Items.Refresh();
+            listeEtudes.ItemsSource = lu;
         }
         private void supprimerButton_Click(object sender, EventArgs e)
         {

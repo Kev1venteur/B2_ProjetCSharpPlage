@@ -20,8 +20,12 @@
         </DataGrid>
         <Button x:Name="supprimerButton" Content="Supprimer" Click="supprimerButton_Click" BorderThickness="2,2,2,2" Margin="695,151,0,156"/>
         <TextBox HorizontalAlignment="Left" Height="33" Margin="288,328,0,0" TextWrapping="Wrap" Text="Nombre d'Especes" x:Name="nbEspeces" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.356,0.536"/>
-        <TextBox HorizontalAlignment="Left" Height="33" Margin="367,328,0,0" TextWrapping="Wrap" Text="ID Equipe Responsable" x:Name="idEquipe" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.356,0.536"/>
-        <Button HorizontalAlignment="Left" Margin="445,328,0,0" VerticalAlignment="Top" Width="92" Height="33" Click="ajouterEtude_Click">
+        <ComboBox Name="listeEquipeCombo" 
+                  DisplayMemberPath="nomEquipeProperty" 
+                  ItemsSource="{Binding}" 
+                  SelectedItem="{Binding idEquipeProperty}" 
+                  Margin="367,328,304,50"></ComboBox>
+        <Button HorizontalAlignment="Left" Margin="477,328,0,0" VerticalAlignment="Top" Width="92" Height="33" Click="ajouterEtude_Click">
             <Label Content="Ajouter" Height="36"/>
         </Button>
         <Button x:Name="supprimerButton_Copy" Content="Accueil" Click="redirectButton_Accueil" BorderThickness="2,2,2,2" Margin="695,10,0,299"/>

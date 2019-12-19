@@ -18,24 +18,34 @@ namespace ProjetB2CSharpPlage.Vue
         CommuneViewModel myDataObject;
         CommuneDAL c = new CommuneDAL();
         ObservableCollection<CommuneViewModel> lu;
+        ObservableCollection<DepartementViewModel> lp;
         public AfficherCommunes()
         {
             InitializeComponent();
             lu = CommuneORM.listeCommunes();
             listeCommunes.ItemsSource = lu;
             myDataObject = new CommuneViewModel();
+            lp = DepartementORM.listeDepartements();
+            listeDepartementsCombo.ItemsSource = lp;
         }
         private void ajouterCommune_Click(object sender, EventArgs e)
         {
             myDataObject.nomCommuneProperty = Nom.Text;
-            string DepartementIdToParse = Departement.Text;
-            int defaultValue = 1; //si la string est abhérente, le département par défaut est 1 -> mauvaisNumDépartement
-            int result;
-            myDataObject.departementCommune = DepartementORM.getDepartement(int.TryParse(DepartementIdToParse, out result) ? result : defaultValue);
+            if ((DepartementViewModel)listeDepartementsCombo.SelectedItem != null)
+            {
+                myDataObject.departementCommune = (DepartementViewModel)listeDepartementsCombo.SelectedItem;
+            }
+            else
+            {
+                myDataObject.departementCommune = new DepartementViewModel(1, "MauvaisNumeroDepartement", 0);
+            }
             CommuneViewModel nouveau = new CommuneViewModel(CommuneDAL.getMaxIdCommune() + 1, myDataObject.nomCommuneProperty, myDataObject.departementCommune);
             lu.Add(nouveau);
             CommuneORM.insertCommune(nouveau);
+            listeDepartementsCombo.ItemsSource = lp;
             listeCommunes.Items.Refresh();
+            listeDepartementsCombo.Items.Refresh();
+            listeCommunes.ItemsSource = lu;
         }
         private void supprimerButton_Click(object sender, EventArgs e)
         {
