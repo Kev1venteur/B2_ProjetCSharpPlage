@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Controls;
 using ProjetB2CSharpPlage.ORM;
-using ProjetB2CSharpPlage.Ctrl;
+using ProjetB2CSharpPlage.VM;
 using ProjetB2CSharpPlage.DAL;
 using System.Collections.ObjectModel;
 using System.Windows;

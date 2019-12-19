@@ -1,7 +1,7 @@
 ﻿using ProjetB2CSharpPlage.ORM;
 using System.ComponentModel;
 
-namespace ProjetB2CSharpPlage.Ctrl
+namespace ProjetB2CSharpPlage.VM
 {
     public class DepartementViewModel : INotifyPropertyChanged
     {

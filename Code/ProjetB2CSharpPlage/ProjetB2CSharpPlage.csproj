@@ -100,6 +100,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vue\AfficherUtilisateurHasEquipe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vue\AfficherUtilisateurs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,14 +120,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Ctrl\CommuneViewModel.cs" />
-    <Compile Include="Ctrl\DepartementViewModel.cs" />
-    <Compile Include="Ctrl\EquipeViewModel.cs" />
-    <Compile Include="Ctrl\EspeceViewModel.cs" />
-    <Compile Include="Ctrl\EtudeViewModel.cs" />
-    <Compile Include="Ctrl\PlageViewModel.cs" />
-    <Compile Include="Ctrl\UtilisateurViewModel.cs" />
-    <Compile Include="Ctrl\ZonePrelevementViewModel.cs" />
+    <Compile Include="DAL\UtilisateurHasEquipeDAL.cs" />
+    <Compile Include="DAO\UtilisateurHasEquipeDAO.cs" />
+    <Compile Include="ORM\UtilisateurHasEquipeORM.cs" />
+    <Compile Include="VM\CommuneViewModel.cs" />
+    <Compile Include="VM\DepartementViewModel.cs" />
+    <Compile Include="VM\EquipeViewModel.cs" />
+    <Compile Include="VM\EspeceViewModel.cs" />
+    <Compile Include="VM\EtudeViewModel.cs" />
+    <Compile Include="VM\PlageViewModel.cs" />
+    <Compile Include="VM\UtilisateurHasEquipeViewModel.cs" />
+    <Compile Include="VM\UtilisateurViewModel.cs" />
+    <Compile Include="VM\ZonePrelevementViewModel.cs" />
     <Compile Include="DAL\CommuneDAL.cs" />
     <Compile Include="DAL\DepartementDAL.cs" />
     <Compile Include="DAL\EquipeDAL.cs" />
@@ -177,6 +185,9 @@
     </Compile>
     <Compile Include="Vue\AfficherPlages.xaml.cs">
       <DependentUpon>AfficherPlages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\AfficherUtilisateurHasEquipe.xaml.cs">
+      <DependentUpon>AfficherUtilisateurHasEquipe.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vue\AfficherUtilisateurs.xaml.cs">
       <DependentUpon>AfficherUtilisateurs.xaml</DependentUpon>

@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using ProjetB2CSharpPlage.Ctrl;
+using ProjetB2CSharpPlage.VM;
 using ProjetB2CSharpPlage.DAO;
 
 namespace ProjetB2CSharpPlage.ORM

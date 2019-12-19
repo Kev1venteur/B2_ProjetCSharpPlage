@@ -1,0 +1,26 @@
+﻿<Page x:Class="ProjetB2CSharpPlage.Vue.AfficherUtilisateurHasEquipe"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjetB2CSharpPlage.Vue"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AfficherUtilisateurHasEquipe">
+
+    <Grid>
+        <Button x:Name="supprimerButton" Content="Supprimer" Click="supprimerButton_Click" BorderThickness="2,2,2,2" Margin="690,146,0,161"/>
+        <Button x:Name="retourAccueilButton" Content="Accueil" Click="redirectButton_Accueil" BorderThickness="2,2,2,2" Margin="690,0,0,304"/>
+        <DataGrid Name="listeUtilisateursHasEquipe" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="0,0,0,161" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUtilisateursHasEquipe_SelectionChanged" Width="690">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="id Utilisateur" Binding="{Binding UtilisateurName_UtilisateurHasEquipeProperty, Mode= OneWay}" />
+                <DataGridTextColumn Header="id Equipe" Binding="{Binding EquipeName_UtilisateurHasEquipeProperty, Mode=OneWay}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox Name="UtilisateurComboBox" DisplayMemberPath="loginUtilisateurProperty" ItemsSource="{Binding}" SelectedItem="{Binding idUtilisateurProperty}" Margin="211,323,443,61"></ComboBox>
+        <ComboBox Name="EquipeComboBox" DisplayMemberPath="nomEquipeProperty" ItemsSource="{Binding}" SelectedItem="{Binding idEquipeProperty}" Margin="337,323,303,61"></ComboBox>
+        <Button x:Name="btnAdd" Content="Ajouter" Click="ajouterButton" Margin="480,323,211,61" RenderTransformOrigin="0.5,2.31"/>
+        <Label Content="Utilisateur" HorizontalAlignment="Left" Margin="211,292,0,0" VerticalAlignment="Top" Width="117"/>
+        <Label Content="Equipe" HorizontalAlignment="Left" Margin="351,292,0,0" VerticalAlignment="Top" Width="117"/>
+    </Grid>
+</Page>

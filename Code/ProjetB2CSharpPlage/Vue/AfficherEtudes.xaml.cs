@@ -1,4 +1,4 @@
-﻿using ProjetB2CSharpPlage.Ctrl;
+﻿using ProjetB2CSharpPlage.VM;
 using ProjetB2CSharpPlage.DAL;
 using ProjetB2CSharpPlage.ORM;
 using System;

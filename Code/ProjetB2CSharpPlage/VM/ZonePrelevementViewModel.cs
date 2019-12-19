@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Threading;
 using ProjetB2CSharpPlage.ORM;
 
-namespace ProjetB2CSharpPlage.Ctrl
+namespace ProjetB2CSharpPlage.VM
 {
     class ZonePrelevementViewModel : INotifyPropertyChanged
     {

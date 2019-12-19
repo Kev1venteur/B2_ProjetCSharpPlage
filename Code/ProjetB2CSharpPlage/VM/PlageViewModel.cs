@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel;
 
-namespace ProjetB2CSharpPlage.Ctrl
+namespace ProjetB2CSharpPlage.VM
 {
     public class PlageViewModel : INotifyPropertyChanged
     {

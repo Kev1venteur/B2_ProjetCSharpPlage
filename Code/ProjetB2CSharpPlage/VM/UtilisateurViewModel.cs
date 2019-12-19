@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using ProjetB2CSharpPlage.ORM;
 
-namespace ProjetB2CSharpPlage.Ctrl
+namespace ProjetB2CSharpPlage.VM
 {
     public class UtilisateurViewModel : INotifyPropertyChanged
     {

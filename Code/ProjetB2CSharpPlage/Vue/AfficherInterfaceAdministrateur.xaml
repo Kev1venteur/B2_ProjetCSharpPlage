@@ -18,5 +18,6 @@
         <Button Content="Especes" Click="redirectButton_Especes" HorizontalAlignment="Left" Margin="537,197,0,0" VerticalAlignment="Top" Width="147" Height="64"/>
         <Button Content="Plages" Click="redirectButton_Plages" HorizontalAlignment="Left" Margin="312,49,0,0" VerticalAlignment="Top" Width="147" Height="64"/>
         <Button Content="Etudes" Click="redirectButton_Etudes" HorizontalAlignment="Left" Margin="312,197,0,0" VerticalAlignment="Top" Width="147" Height="64"/>
+        <Button Content="Utilisateur - Equipe" Click="redirectButton_UE" HorizontalAlignment="Left" Margin="312,341,0,0" VerticalAlignment="Top" Width="147" Height="64"/>
     </Grid>
 </Page>
