@@ -1,10 +1,10 @@
-# ProjetB2CSharpPlage
+# B2_ProjetCSharpPlage
 
 Front/Back office pour compter les espèces sur une plage, Projet B2 CSharp 2019.
 
 ## How to Start
 ```
-git clone https://github.com/Kev1venteur/ProjetB2CSharpPlage.git
+git clone https://github.com/Kev1venteur/B2_ProjetCSharpPlage.git
 ```
 
 ## How to contribute
